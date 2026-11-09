@@ -1,0 +1,7 @@
+node_modules/
+servidor.log
+# geração das imagens, rascunhos e notas internas não vão para o repo (público)
+_*
+README.md
+.vercel
+.env*

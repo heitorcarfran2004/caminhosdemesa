@@ -1,0 +1,1154 @@
+<!doctype html>
+<!-- LP dos "100 Gráficos de Caminho de Mesa em Crochê" (PT-BR, mobile, Meta Ads). Montada em 09/11/2026 pelo Webdesigner
+     a partir da LP irmã do Fio Felpudo (funis/fio-felpudo-natal): mesma mecânica de preço num lugar só, botões, back redirect
+     (index -> promo.html), carrossel, vídeos que só carregam na tela e depoimentos escondidos até ter print real.
+     Copy continua a promessa dos anúncios (entregaveis/caminho-mesa-croche/criativos/roteiros.md): a ponta que fica diferente
+     e a peça desmanchada; o tamanho certo pra mesa de 6 lugares; a ceia e as encomendas de Natal; a primeira coisa que a visita elogia.
+     IMAGENS: tudo do entregável REAL (_geracao/imagens.cjs): páginas, fotos dos caminhos (recorte da foto da ficha), capa,
+     gravação do PDF e trecho de videoaula. estende.mp4 e natal.mp4 = B-roll do Heitor (Downloads\Caminho de mesa\Videos).
+     Galeria e bloco de Natal são gerados do catalogo.json por _geracao/galeria.cjs (não editar à mão entre os marcadores). -->
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- ============================================================
+     O QUE TROCAR ANTES DE SUBIR (tudo aqui em cima)
+       1. PRECO      -> window.PRECO (PROVISÓRIO R$ 17,90, igual ao Fio Felpudo). Todo preço da página lê daqui.
+       2. CHECKOUT   -> window.CHECKOUT (produto ainda não cadastrado na Wiapy).
+       3. PIXEL META -> window.PIXEL_META_ID (enquanto tiver TROCAR, o pixel não carrega).
+       4. UTMIFY     -> window.UTMIFY_ID     (enquanto tiver TROCAR, a UTMify não carrega).
+       5. SAÍDA      -> promo.html (preço e checkout próprios, no topo dela).
+       6. CAPA       -> provisória C6. Trocar: CAPA=C3 node _geracao/imagens.cjs --so-capa (refaz img/capa.webp, promo e og).
+     ============================================================ -->
+<script>
+  window.PRECO = '17,90';                          // PROVISÓRIO: o Heitor ainda não definiu o preço
+  window.CHECKOUT = 'TROCAR-CHECKOUT-PRINCIPAL';   // link do checkout Wiapy (https://pay.wiapy.com/...)
+  window.PIXEL_META_ID = 'TROCAR-PIXEL-META';
+  window.UTMIFY_ID = 'TROCAR-UTMIFY-ID';
+  window.LINK_SAIDA = 'promo.html';                // back redirect. Vazio = desligado.
+</script>
+
+<!-- Pixel da Meta: só liga quando o ID for real -->
+<script>
+  if (window.PIXEL_META_ID.indexOf('TROCAR') === -1) {
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+    n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+    document,'script','https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', window.PIXEL_META_ID);
+    fbq('track', 'PageView');
+  }
+</script>
+<!-- UTMify (pixel + repasse de UTMs): só liga quando o ID for real -->
+<script>
+  if (window.UTMIFY_ID.indexOf('TROCAR') === -1) {
+    window.pixelId = window.UTMIFY_ID;
+    var a = document.createElement('script'); a.async = true; a.defer = true;
+    a.src = 'https://cdn.utmify.com.br/scripts/pixel/pixel.js'; document.head.appendChild(a);
+    var u = document.createElement('script'); u.async = true; u.defer = true;
+    u.src = 'https://cdn.utmify.com.br/scripts/utms/latest.js';
+    u.setAttribute('data-utmify-prevent-xcod-sck', ''); u.setAttribute('data-utmify-prevent-subids', '');
+    document.head.appendChild(u);
+  }
+</script>
+
+<title>100 Gráficos de Caminho de Mesa em Crochê · ficha + gráfico completo + 50 videoaulas</title>
+<meta name="description" content="100 caminhos de mesa em crochê, cada um com a ficha (tamanho final, gramas de linha, agulha, nível, tempo e ordem de montagem) e o gráfico completo pra imprimir. E ainda 50 videoaulas.">
+<meta name="theme-color" content="#1B2B4B">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:title" content="100 Gráficos de Caminho de Mesa em Crochê">
+<meta property="og:description" content="Oval, filé, abacaxi, flores, rústico, luxo e 10 de Natal. Ficha + gráfico completo + 50 videoaulas.">
+<meta property="og:image" content="img/og.jpg">
+<link rel="preload" as="font" type="font/woff2" href="fonts/inter-latin.woff2" crossorigin>
+<link rel="preload" as="font" type="font/woff2" href="fonts/dmserifdisplay-latin.woff2" crossorigin>
+<link rel="preload" as="image" href="img/capa.webp" fetchpriority="high">
+<style>
+@font-face{font-family:'Inter';font-style:normal;font-weight:400 800;font-display:swap;src:url(fonts/inter-latin-ext.woff2) format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C4,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:'Inter';font-style:normal;font-weight:400 800;font-display:swap;src:url(fonts/inter-latin.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'DM Serif Display';font-style:normal;font-weight:400;font-display:swap;src:url(fonts/dmserifdisplay-latin-ext.woff2) format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C4,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:'DM Serif Display';font-style:normal;font-weight:400;font-display:swap;src:url(fonts/dmserifdisplay-latin.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'DM Serif Display';font-style:italic;font-weight:400;font-display:swap;src:url(fonts/dmserifdisplay-italic-latin-ext.woff2) format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C4,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:'DM Serif Display';font-style:italic;font-weight:400;font-display:swap;src:url(fonts/dmserifdisplay-italic-latin.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Inter Reserva";font-weight:400 500;src:local("Arial"),local("ArialMT");size-adjust:105%;ascent-override:92%;descent-override:23%;line-gap-override:0%}
+@font-face{font-family:"Inter Reserva";font-weight:600 800;src:local("Arial Bold"),local("Arial-BoldMT");size-adjust:103%;ascent-override:94%;descent-override:23.4%;line-gap-override:0%}
+</style>
+
+<!-- back redirect + botões de compra -->
+<script>
+  window.__indoParaCheckout = false;
+  (function () {
+    if (!window.LINK_SAIDA) return;
+    var url = window.LINK_SAIDA.trim() + (window.LINK_SAIDA.indexOf('?') > 0 ? '&' : '?') + document.location.search.replace('?', '');
+    history.pushState({}, '', location.href);
+    history.pushState({}, '', location.href);
+    history.pushState({}, '', location.href);
+    window.addEventListener('popstate', function () {
+      if (window.__indoParaCheckout) return;
+      setTimeout(function () { location.href = url; }, 1);
+    });
+  })();
+
+  document.addEventListener('DOMContentLoaded', function () {
+    // preço: um lugar só (window.PRECO)
+    document.querySelectorAll('[data-preco]').forEach(function (el) { el.textContent = window.PRECO; });
+    // dias até o Natal (conta de verdade, pelo relógio de quem abre)
+    var hoje = new Date(), natal = new Date(hoje.getFullYear(), 11, 25);
+    if (hoje > natal) natal = new Date(hoje.getFullYear() + 1, 11, 25);
+    var dias = Math.ceil((natal - new Date(hoje.getFullYear(), hoje.getMonth(), hoje.getDate())) / 864e5);
+    document.querySelectorAll('[data-dias]').forEach(function (el) { el.textContent = dias; });
+
+    // botões de compra: link do CHECKOUT + UTMs da URL. Enquanto for TROCAR, avisam.
+    var q = new URLSearchParams(location.search), link = window.CHECKOUT;
+    if (/^https?:/.test(link)) { var u = new URL(link); q.forEach(function (v, k) { if (!u.searchParams.has(k)) u.searchParams.set(k, v); }); link = u.toString(); }
+    document.querySelectorAll('.ir-checkout').forEach(function (a) {
+      a.setAttribute('href', link);
+      a.addEventListener('click', function (e) {
+        if (window.CHECKOUT.indexOf('TROCAR') !== -1) {
+          e.preventDefault();
+          alert('Link de checkout ainda não configurado (window.CHECKOUT no topo do index.html).');
+          return;
+        }
+        window.__indoParaCheckout = true;
+        if (window.fbq) fbq('track', 'InitiateCheckout');
+      });
+    });
+    // ESTE SELETOR ANDA JUNTO COM O GATEWAY (Wiapy). Trocou de gateway, troca aqui.
+    document.querySelectorAll('a[href*="pay.wiapy.com"]').forEach(function (a) {
+      a.addEventListener('click', function () { window.__indoParaCheckout = true; });
+    });
+    // âncoras internas por scroll programático: não mexem no histórico (não disparam a saída)
+    document.querySelectorAll('.ir-oferta').forEach(function (b) {
+      b.addEventListener('click', function (e) {
+        e.preventDefault();
+        var alvo = document.getElementById('oferta');
+        if (alvo) alvo.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+    });
+  });
+</script>
+
+<style>
+  :root{
+    --marinho:#1B2B4B;      /* o azul-marinho das fichas e da capa */
+    --marinho-esc:#111C33;
+    --marinho-2:#24375E;
+    --dourado:#C29A45;      /* o dourado dos ícones da ficha */
+    --dourado-claro:#E6CD8C;
+    --creme:#F7F1E6;
+    --creme-2:#EFE5D2;
+    --madeira:#B8834F;
+    --borda:#E2D5BB;
+    --tinta:#26262E;
+    --cinza:#655E54;
+    --vermelho:#A3262C;     /* só no bloco de Natal */
+    --verde-natal:#2E5B3B;
+    --branco:#fff;
+    --sans:"Inter","Inter Reserva",system-ui,-apple-system,"Segoe UI",sans-serif;
+    --serif:"DM Serif Display",Georgia,"Times New Roman",serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+  body{background:var(--creme);color:var(--tinta);font-family:var(--sans);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  img,video{max-width:100%;display:block}
+  .wrap{width:100%;max-width:1080px;margin:0 auto;padding:0 16px}
+  .estreito{max-width:760px}
+  section{padding:clamp(52px,7vw,88px) 0}
+  .centro{text-align:center}
+
+  h1,h2,h3{font-family:var(--serif);font-weight:400;line-height:1.1;letter-spacing:-.3px;color:var(--marinho)}
+  h1{font-size:clamp(33px,5.6vw,56px)}
+  h2{font-size:clamp(29px,4.3vw,44px)}
+  h3{font-size:clamp(21px,2.5vw,25px)}
+  /* a parte da frase em itálico dourado, como o "100" da capa */
+  .it{font-style:italic;color:var(--dourado)}
+  .sub{font-size:clamp(16px,1.9vw,18px);color:var(--cinza);max-width:680px}
+  .centro .sub{margin-left:auto;margin-right:auto}
+
+  /* etiqueta de seção: faixa marinho com fio dourado, igual ao cabeçalho da ficha */
+  .tag{display:inline-block;font-size:12px;font-weight:800;letter-spacing:1.7px;text-transform:uppercase;color:var(--marinho);
+    border-top:1.5px solid var(--dourado);border-bottom:1.5px solid var(--dourado);padding:5px 4px 4px;margin-bottom:16px}
+  .tag.clara{color:var(--dourado-claro)}
+
+  .ico{width:26px;height:26px;stroke:currentColor;fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;flex:none}
+
+  /* ---------- BARRA ---------- */
+  .barra{background:var(--marinho);color:#fff;text-align:center;padding:9px 14px 10px;font-size:14px;line-height:1.35;border-bottom:2px solid var(--dourado)}
+  .barra b{background:var(--dourado-claro);color:var(--marinho-esc);border-radius:5px;padding:0 6px;font-variant-numeric:tabular-nums}
+  .barra .l2{font-size:13px;opacity:.9;margin-top:2px}
+
+  /* ---------- BOTÃO ---------- */
+  .btn{display:inline-block;position:relative;overflow:hidden;isolation:isolate;
+    background:linear-gradient(180deg,#36A35E 0%,#25864A 55%,#1C6E3C 100%);color:#fff;
+    font-weight:800;font-size:clamp(16px,2vw,18px);letter-spacing:.4px;padding:19px 38px;border-radius:14px;
+    text-decoration:none;text-align:center;border:none;cursor:pointer;font-family:var(--sans);line-height:1.2;
+    box-shadow:0 8px 22px rgba(28,110,60,.35),inset 0 1px 0 rgba(255,255,255,.25);transition:transform .16s,filter .16s}
+  .btn:hover{transform:translateY(-2px);filter:brightness(1.06)}
+  .btn::after{content:"";position:absolute;top:0;left:-60%;width:40%;height:100%;z-index:-1;pointer-events:none;
+    background:linear-gradient(105deg,transparent 0%,rgba(255,255,255,.24) 50%,transparent 100%);animation:reflexo 4s ease-in-out infinite}
+  @keyframes reflexo{0%,70%{left:-60%}100%{left:130%}}
+  .btn small{display:block;font-weight:600;font-size:12.5px;letter-spacing:0;opacity:.9;margin-top:4px}
+  .btn.full{width:100%}
+  @media(max-width:520px){.btn{width:100%;padding:18px 16px}}
+  .selos{display:flex;gap:8px 16px;justify-content:center;flex-wrap:wrap;margin-top:14px;font-size:13px;color:var(--cinza)}
+  .selos span{display:inline-flex;align-items:center;gap:6px}
+  .selos .ico{width:16px;height:16px;color:#25864A}
+
+  /* ---------- HERO ---------- */
+  .hero{padding:clamp(26px,5vw,56px) 0 clamp(48px,6vw,72px);background:radial-gradient(ellipse at 72% 18%,#FFFDF8 0%,var(--creme) 62%)}
+  .hero-grid{display:grid;grid-template-columns:1fr 1fr;grid-template-areas:"topo img" "btn img" "cards img";gap:0 clamp(24px,4vw,52px);align-items:center}
+  .hero-topo{grid-area:topo;text-align:center}
+  .hero-img{grid-area:img}
+  .hero-btn{grid-area:btn;margin-top:22px;text-align:center}
+  .hero-cards{grid-area:cards}
+  .hero h1{margin:2px 0 14px}
+  .hero h1 .it{display:block;margin-top:4px}
+  .hero .sub{margin:0 auto}
+  /* mockup montado com as peças reais: ficha + gráfico abertos atrás, capa na frente (a capa troca num arquivo só) */
+  .mock{position:relative;width:100%;max-width:540px;margin:0 auto;aspect-ratio:1/1}
+  .mock::before{content:"";position:absolute;inset:9% 2% 3%;border-radius:50%;background:radial-gradient(closest-side,rgba(194,154,69,.28),transparent);filter:blur(6px)}
+  .mock img{position:absolute;height:auto;border-radius:3px;box-shadow:0 18px 38px rgba(17,28,51,.24)}
+  .mock .pg1{width:47%;left:1%;top:7%;transform:rotate(-7deg)}
+  .mock .pg2{width:47%;right:1%;top:5%;transform:rotate(6deg)}
+  .mock .capa{width:54%;left:23%;top:15%;border-radius:2px 6px 6px 2px;box-shadow:14px 22px 40px rgba(17,28,51,.38),inset 0 0 0 1px rgba(0,0,0,.05)}
+  .mock .selo-v{position:absolute;right:3%;bottom:6%;width:27%;aspect-ratio:1;border-radius:50%;background:var(--marinho);color:#fff;
+    display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;line-height:1.05;box-shadow:0 12px 26px rgba(17,28,51,.35);transform:rotate(-8deg);border:3px solid var(--dourado-claro)}
+  .mock .selo-v b{font-family:var(--serif);font-weight:400;font-size:clamp(28px,5vw,40px);color:var(--dourado-claro)}
+  .mock .selo-v span{font-size:clamp(10px,1.5vw,12.5px);font-weight:800;letter-spacing:.8px;text-transform:uppercase}
+  .stats{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:24px}
+  .stat{background:#fff;border:1px solid var(--borda);border-radius:14px;padding:14px 8px 12px;text-align:center}
+  .stat b{display:block;font-family:var(--serif);font-weight:400;font-size:clamp(30px,3.6vw,36px);color:var(--marinho);line-height:1}
+  .stat span{display:block;font-size:13.5px;color:var(--cinza);margin-top:4px;line-height:1.35}
+  @media(max-width:880px){
+    .hero-grid{grid-template-columns:1fr;grid-template-areas:"topo" "img" "btn" "cards"}
+    .hero-img{margin:16px auto 0;width:100%;max-width:480px}
+  }
+
+  /* ---------- A DOR ---------- */
+  .dor{background:#fff}
+  .dor-grid{display:grid;grid-template-columns:auto 1fr;gap:clamp(24px,4vw,56px);align-items:center;text-align:left;margin-top:8px}
+  .vert{width:clamp(200px,24vw,260px);aspect-ratio:9/16;border-radius:20px;overflow:hidden;background:var(--creme-2);box-shadow:0 22px 44px rgba(17,28,51,.22);border:5px solid #fff;outline:1px solid var(--borda)}
+  .vert video{width:100%;height:100%;object-fit:cover}
+  .dores{display:grid;gap:12px;margin-top:22px}
+  .dor-item{display:grid;grid-template-columns:44px 1fr;gap:14px;align-items:start;background:var(--creme);border:1px solid var(--borda);border-radius:14px;padding:16px}
+  .dor-item .x{width:44px;height:44px;border-radius:50%;background:#fff;border:1.5px solid var(--vermelho);color:var(--vermelho);display:flex;align-items:center;justify-content:center;font-size:20px;font-weight:800}
+  .dor-item b{display:block;font-size:16.5px;color:var(--marinho);margin-bottom:2px}
+  .dor-item span{font-size:15px;color:var(--cinza);line-height:1.55;display:block}
+  .virada{margin-top:22px;font-family:var(--serif);font-size:clamp(22px,2.8vw,28px);line-height:1.2;color:var(--marinho)}
+  .virada .it{display:block}
+  @media(max-width:760px){.dor-grid{grid-template-columns:1fr;justify-items:center}.dor-grid .vert{order:2;width:min(240px,64vw)}.dor-grid > div:last-child{width:100%}.dor h2{text-align:center}}
+
+  /* ---------- MECANISMO ---------- */
+  .antes{background:var(--marinho);color:#fff;position:relative}
+  .antes h2{color:#fff}
+  .antes .it{color:var(--dourado-claro)}
+  .antes .sub{color:#C9D2E3}
+  .tres{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;max-width:940px;margin:40px auto 0}
+  .tres > div{background:rgba(255,255,255,.05);border:1px solid rgba(230,205,140,.35);border-radius:18px;padding:26px 20px 22px;text-align:center}
+  .tres .n{font-family:var(--serif);font-size:50px;line-height:1;color:var(--dourado-claro)}
+  .tres b{display:block;font-size:19px;margin:6px 0 6px}
+  .tres span{font-size:15px;color:#C9D2E3;line-height:1.55;display:block}
+  .antes .fecho{max-width:640px;margin:30px auto 0;font-size:clamp(16px,2vw,18px);color:#fff}
+  .antes .fecho b{color:var(--dourado-claro)}
+  @media(max-width:760px){.tres{grid-template-columns:1fr;max-width:460px}}
+
+  /* ---------- POR DENTRO ---------- */
+  .dentro{background:var(--creme);overflow:hidden}
+  .trilho{display:flex;gap:16px;margin-top:36px;padding:6px 0 18px;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+  .trilho::-webkit-scrollbar{display:none}
+  .trilho figure{flex:0 0 clamp(228px,30vw,300px);margin:0}
+  .trilho img{width:100%;height:auto;border-radius:6px;border:1px solid var(--borda);box-shadow:0 12px 26px rgba(17,28,51,.14);background:#fff}
+  .dica-arraste{font-size:13px;color:var(--cinza);margin-top:4px}
+  .partes{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:30px;text-align:left}
+  .parte{background:#fff;border:1px solid var(--borda);border-radius:14px;padding:16px 16px 15px;display:grid;grid-template-columns:auto 1fr;gap:4px 12px;align-items:center}
+  .parte .ico{color:var(--dourado);width:30px;height:30px;grid-row:span 2}
+  .parte b{font-size:13px;font-weight:800;letter-spacing:.6px;color:var(--marinho);line-height:1.3;text-transform:uppercase}
+  .parte span{font-size:14.5px;color:var(--cinza);line-height:1.45}
+  @media(max-width:860px){.partes{grid-template-columns:1fr 1fr}}
+  @media(max-width:520px){.partes{grid-template-columns:1fr}}
+  .cel-bloco{display:grid;grid-template-columns:auto 1fr;gap:clamp(22px,4vw,48px);align-items:center;max-width:820px;margin:clamp(40px,5vw,60px) auto 0;text-align:left}
+  .celular{width:clamp(190px,26vw,240px);aspect-ratio:320/650;border-radius:30px;background:#1A1A1F;padding:9px;box-shadow:0 26px 50px rgba(17,28,51,.3);position:relative}
+  .celular video{width:100%;height:100%;object-fit:cover;object-position:top;border-radius:22px;background:#fff}
+  .cel-bloco h3{margin-bottom:10px}
+  .cel-bloco p{color:var(--cinza)}
+  @media(max-width:640px){.cel-bloco{grid-template-columns:1fr;text-align:center;justify-items:center}}
+
+  /* ---------- MESA DE 6 LUGARES ---------- */
+  .mesa6{background:#fff}
+  .mesa6-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,4vw,56px);align-items:center;text-align:left}
+  .planta{background:var(--creme);border:1px solid var(--borda);border-radius:20px;padding:22px 18px 18px}
+  .planta svg{width:100%;height:auto;display:block}
+  .planta p{font-size:13px;color:var(--cinza);text-align:center;margin-top:8px}
+  .mesa6 ul{list-style:none;display:grid;gap:10px;margin-top:20px}
+  .mesa6 li{display:flex;gap:12px;align-items:center;background:var(--creme);border:1px solid var(--borda);border-radius:12px;padding:10px 12px;font-size:15px;line-height:1.4}
+  .mesa6 li img{width:96px;height:48px;object-fit:cover;border-radius:6px;flex:none}
+  .mesa6 li b{color:var(--marinho);display:block}
+  .mesa6 li span{color:var(--cinza);font-size:14px}
+  @media(max-width:800px){.mesa6-grid{grid-template-columns:1fr}.mesa6 h2,.mesa6 .sub{text-align:center}}
+
+  /* ---------- GALERIA ---------- */
+  .galeria{background:var(--creme)}
+  .filtros{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-top:28px}
+  .filtros button{font-family:var(--sans);font-size:14px;font-weight:700;color:var(--marinho);background:#fff;border:1.5px solid var(--borda);border-radius:30px;padding:8px 15px;cursor:pointer}
+  .filtros button[aria-pressed="true"]{background:var(--marinho);border-color:var(--marinho);color:#fff}
+  .mods{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:26px;text-align:left}
+  .mod{background:#fff;border:1px solid var(--borda);border-radius:14px;overflow:hidden;margin:0;box-shadow:0 8px 20px rgba(17,28,51,.06)}
+  .mod img{width:100%;height:auto;aspect-ratio:2/1;object-fit:cover}
+  .mod figcaption{padding:10px 13px 12px}
+  .mod b{display:block;font-size:15.5px;color:var(--marinho);line-height:1.3}
+  .mod span{display:block;font-size:13px;color:var(--cinza);margin-top:2px}
+  .mod[hidden]{display:none}
+  @media(max-width:860px){.mods{grid-template-columns:1fr 1fr;gap:12px}}
+  @media(max-width:520px){.mod b{font-size:14px}.mod span{font-size:12px}.mod figcaption{padding:8px 10px 10px}}
+  .gal-nota{font-size:13px;color:var(--cinza);margin-top:18px}
+
+  /* ---------- NATAL ---------- */
+  .natal{background:var(--vermelho);color:#fff;overflow:hidden;position:relative}
+  .natal::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at 15% 0%,rgba(255,255,255,.12),transparent 55%);pointer-events:none}
+  .natal h2{color:#fff}
+  .natal .it{color:var(--dourado-claro)}
+  .natal .tag{color:var(--dourado-claro)}
+  .natal-grid{display:grid;grid-template-columns:1fr auto;gap:clamp(24px,4vw,56px);align-items:center;text-align:left;position:relative}
+  .natal p{color:#F6DCDD;font-size:clamp(16px,1.9vw,17.5px);margin-top:14px}
+  .natal p b{color:#fff}
+  .natal .vert{border-color:rgba(255,255,255,.9);outline:none}
+  .nat-trilho{display:flex;gap:14px;margin-top:36px;padding:4px 0 14px;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch;position:relative}
+  .nat-trilho::-webkit-scrollbar{display:none}
+  @media(min-width:900px){.nat-trilho{display:grid;grid-template-columns:repeat(5,1fr);overflow:visible}.nat{flex:none}}
+  .nat{flex:0 0 clamp(230px,30vw,300px);margin:0;background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 10px 24px rgba(0,0,0,.22)}
+  .nat img{width:100%;height:auto;aspect-ratio:2/1;object-fit:cover}
+  .nat figcaption{padding:8px 12px 10px;text-align:left}
+  .nat b{display:block;color:var(--marinho);font-size:15px}
+  .nat span{display:block;color:var(--cinza);font-size:12.5px}
+  .contagem{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}
+  .contagem div{background:rgba(0,0,0,.18);border:1px solid rgba(230,205,140,.5);border-radius:12px;padding:10px 14px;font-size:14px;line-height:1.35}
+  .contagem b{display:block;font-family:var(--serif);font-weight:400;font-size:30px;line-height:1;color:var(--dourado-claro)}
+  @media(max-width:760px){.natal-grid{grid-template-columns:1fr;text-align:center;justify-items:center}.contagem{justify-content:center}}
+
+  /* ---------- VIDEOAULAS (tablet deitado com controles de player, igual aos criativos) ---------- */
+  .aulas{background:var(--marinho-esc);color:#fff}
+  .aulas h2{color:#fff}
+  .aulas .it{color:var(--dourado-claro)}
+  .aulas-grid{display:grid;grid-template-columns:1.15fr 1fr;gap:clamp(28px,4vw,56px);align-items:center;text-align:left}
+  .tablet{position:relative;background:#111;border-radius:clamp(22px,3vw,34px);padding:clamp(12px,1.8vw,18px);transform:rotate(-2deg);
+    box-shadow:0 30px 70px rgba(0,0,0,.55),inset 0 0 0 2px #3a3a3a;max-width:620px;margin:0 auto;width:100%}
+  .tablet::before{content:"";position:absolute;left:clamp(4px,.7vw,7px);top:50%;width:6px;height:6px;margin-top:-3px;border-radius:50%;background:#333}
+  .tela{position:relative;aspect-ratio:16/9;border-radius:10px;overflow:hidden;background:#000}
+  .tela video{width:100%;height:100%;object-fit:cover}
+  .tela::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 60%,rgba(0,0,0,.6) 100%);pointer-events:none}
+  .ctrl{position:absolute;left:0;right:0;top:50%;transform:translateY(-50%);display:flex;justify-content:center;align-items:center;gap:clamp(22px,6vw,56px);z-index:2;pointer-events:none}
+  .ctrl i{display:flex;align-items:center;justify-content:center;border-radius:50%;background:rgba(0,0,0,.45);border:2px solid rgba(255,255,255,.9);box-shadow:0 4px 14px rgba(0,0,0,.35)}
+  .ctrl i.p{width:clamp(36px,6vw,52px);height:clamp(36px,6vw,52px)}
+  .ctrl i.g{width:clamp(46px,7.5vw,66px);height:clamp(46px,7.5vw,66px)}
+  .ctrl svg{width:62%;height:62%}
+  .barra-play{position:absolute;left:4%;right:4%;bottom:6%;z-index:2;color:#fff;font-size:clamp(10px,1.4vw,13px);font-weight:800}
+  .barra-play .tempos{display:flex;justify-content:space-between;margin-bottom:5px;text-shadow:0 1px 3px rgba(0,0,0,.8)}
+  .barra-play .trk{height:5px;border-radius:3px;background:rgba(255,255,255,.35)}
+  .barra-play .trk div{width:33%;height:5px;border-radius:3px;background:#E0322F;position:relative;animation:anda 12s linear infinite}
+  .barra-play .trk div::after{content:"";position:absolute;right:-6px;top:-4px;width:13px;height:13px;border-radius:50%;background:#fff}
+  @keyframes anda{from{width:31%}to{width:37%}}
+  .aulas p{color:#C9D2E3;font-size:16.5px;margin-top:12px}
+  .aulas ul{list-style:none;margin-top:18px;display:grid;gap:10px}
+  .aulas li{display:flex;gap:10px;align-items:flex-start;font-size:15.5px}
+  .aulas li .ico{width:20px;height:20px;color:var(--dourado-claro);margin-top:2px}
+  @media(max-width:800px){.aulas-grid{grid-template-columns:1fr;text-align:center}.aulas ul{text-align:left;max-width:420px;margin-left:auto;margin-right:auto}}
+
+  /* ---------- PRA QUÊ ---------- */
+  .usos{background:#fff}
+  .usos-lista{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:40px;text-align:left}
+  .uso{background:var(--creme);border:1px solid var(--borda);border-radius:18px;overflow:hidden;display:flex;flex-direction:column}
+  .uso img{width:100%;height:auto;aspect-ratio:2/1;object-fit:cover}
+  .uso .txt{padding:18px 20px 20px}
+  .uso .num{font-family:var(--serif);font-size:32px;line-height:1;color:var(--dourado)}
+  .uso b{display:block;font-size:19px;font-weight:800;color:var(--marinho);margin:4px 0 6px}
+  .uso span{font-size:15px;color:var(--cinza);line-height:1.58;display:block}
+  .uso .destaque{display:block;margin-top:12px;background:#fff;border:1px dashed var(--dourado);border-radius:12px;padding:10px 12px;color:var(--tinta);font-size:14.5px}
+  .uso .destaque b{display:inline;font-size:14.5px;color:var(--marinho);margin:0}
+  @media(max-width:860px){.usos-lista{grid-template-columns:1fr;max-width:560px;margin-left:auto;margin-right:auto}}
+
+  /* ---------- O QUE RECEBE ---------- */
+  .recebe{background:var(--creme)}
+  .recebe-mock{position:relative;max-width:760px;margin:30px auto 0;height:clamp(250px,42vw,380px)}
+  .recebe-mock img{position:absolute;height:auto;border-radius:3px;box-shadow:0 16px 34px rgba(17,28,51,.22);background:#fff}
+  .recebe-mock .a{width:26%;left:6%;top:12%;transform:rotate(-8deg)}
+  .recebe-mock .b{width:26%;left:24%;top:4%;transform:rotate(-3deg)}
+  .recebe-mock .c{width:26%;right:24%;top:4%;transform:rotate(3deg)}
+  .recebe-mock .d{width:26%;right:6%;top:12%;transform:rotate(8deg)}
+  .recebe-mock .capa{width:31%;left:34.5%;top:0;z-index:2;border-radius:2px 6px 6px 2px;box-shadow:14px 20px 40px rgba(17,28,51,.36)}
+  @media(max-width:620px){.recebe-mock{height:74vw}.recebe-mock .a,.recebe-mock .d{width:31%}.recebe-mock .a{left:0}.recebe-mock .d{right:0}.recebe-mock .b,.recebe-mock .c{width:31%}.recebe-mock .b{left:15%}.recebe-mock .c{right:15%}.recebe-mock .capa{width:44%;left:28%}}
+  .cats{display:grid;grid-template-columns:repeat(2,1fr);gap:10px 14px;max-width:820px;margin:30px auto 0;text-align:left;list-style:none}
+  .cats li{display:flex;align-items:center;gap:12px;background:#fff;border:1px solid var(--borda);border-radius:12px;padding:12px 14px;font-size:15px;line-height:1.35}
+  .cats li b{flex:none;min-width:40px;height:40px;border-radius:10px;background:var(--marinho);color:var(--dourado-claro);font-family:var(--serif);font-weight:400;font-size:20px;display:flex;align-items:center;justify-content:center}
+  @media(max-width:620px){.cats{grid-template-columns:1fr}}
+  .temas{max-width:820px;margin:14px auto 0;font-size:15px;color:var(--cinza)}
+  .temas b{color:var(--marinho)}
+  .duplo{max-width:820px;margin:20px auto 0;background:#fff;border:1px solid var(--borda);border-radius:20px;padding:22px 18px 18px}
+  .duplo-cols{display:grid;grid-template-columns:repeat(3,1fr);margin-bottom:16px}
+  .duplo-col{padding:4px 10px;text-align:center}
+  .duplo-col + .duplo-col{border-left:1px solid var(--borda)}
+  .duplo-col .ico{margin:0 auto 6px;color:var(--dourado)}
+  .duplo-col b{display:block;font-size:16px;color:var(--marinho)}
+  .duplo-col span{font-size:13.5px;color:var(--cinza);line-height:1.45;display:block}
+  .faixa{background:var(--marinho);color:#fff;border-radius:12px;padding:13px 10px;font-size:13px;font-weight:800;letter-spacing:.8px;text-align:center}
+  .faixa em{font-style:normal;color:var(--dourado-claro);padding:0 4px}
+  @media(max-width:560px){.duplo-cols{grid-template-columns:1fr}.duplo-col + .duplo-col{border-left:none;border-top:1px solid var(--borda);padding-top:12px;margin-top:10px}.faixa{font-size:11.5px;letter-spacing:.3px}}
+
+  /* ---------- DEPOIMENTOS (escondidos até ter print real) ---------- */
+  .deps{background:#fff}
+  .dep-palco{position:relative;margin-top:40px;height:clamp(500px,76vw,740px);display:flex;align-items:center;justify-content:center;overflow:hidden}
+  .dep-trilho{position:relative;width:100%;height:100%}
+  .dep-slide{position:absolute;top:50%;left:50%;margin:0;width:clamp(270px,36vw,400px);transform:translate(-50%,-50%) scale(.78);opacity:0;pointer-events:none;transition:transform .5s cubic-bezier(.25,.9,.3,1),opacity .5s ease;z-index:1}
+  .dep-slide img{width:100%;height:auto;border-radius:16px;border:1px solid var(--borda);background:#fff;box-shadow:0 14px 34px rgba(17,28,51,.16)}
+  .dep-slide.centro{transform:translate(-50%,-50%) scale(1);opacity:1;z-index:3}
+  .dep-slide.esq{transform:translate(calc(-50% - 74%),-50%) scale(.8);opacity:.45;z-index:2}
+  .dep-slide.dir{transform:translate(calc(-50% + 74%),-50%) scale(.8);opacity:.45;z-index:2}
+  .dep-exemplo{aspect-ratio:9/16;border-radius:16px;border:2px dashed var(--dourado);background:#fff;display:flex;align-items:center;justify-content:center;text-align:center;padding:24px;color:var(--marinho);font-weight:700}
+  .dep-seta{position:absolute;top:50%;transform:translateY(-50%);z-index:5;width:44px;height:44px;border-radius:50%;border:1px solid var(--borda);background:#fff;color:var(--marinho);font-size:26px;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center;font-family:inherit}
+  .dep-seta.ant{left:max(12px,4vw)}
+  .dep-seta.prox{right:max(12px,4vw)}
+  .dep-dots{display:flex;gap:9px;justify-content:center;margin-top:24px}
+  .dep-dots button{width:9px;height:9px;border-radius:50%;border:none;padding:0;background:var(--borda);cursor:pointer}
+  .dep-dots button[aria-current="true"]{background:var(--marinho);width:26px;border-radius:10px}
+
+  /* ---------- OFERTA ---------- */
+  .oferta{background:#fff}
+  .plano{max-width:520px;margin:40px auto 0;background:#fff;border:2px solid var(--marinho);border-radius:22px;padding:36px 24px 26px;text-align:left;position:relative;box-shadow:0 24px 60px rgba(17,28,51,.14)}
+  .fita{position:absolute;top:-15px;left:50%;transform:translateX(-50%);background:var(--marinho);color:var(--dourado-claro);font-size:11.5px;font-weight:800;letter-spacing:1.3px;text-transform:uppercase;padding:8px 18px;border-radius:100px;white-space:nowrap}
+  .plano-capa{width:160px;height:auto;margin:0 auto 14px;border-radius:2px 6px 6px 2px;box-shadow:8px 12px 22px rgba(17,28,51,.28)}
+  .plano-nome{font-family:var(--serif);font-size:24px;color:var(--marinho);text-align:center;line-height:1.15}
+  .plano-preco{font-size:clamp(54px,9vw,66px);font-weight:800;color:var(--marinho);line-height:1;margin:12px 0 4px;text-align:center;letter-spacing:-2px}
+  .plano-preco small{font-size:22px;font-weight:800;vertical-align:top;margin-right:4px;color:var(--cinza);letter-spacing:0;position:relative;top:8px}
+  .plano-obs{font-size:14px;color:var(--cinza);margin-bottom:22px;text-align:center}
+  .inclui{display:grid;gap:10px;margin-bottom:20px;list-style:none}
+  .inclui li{display:flex;gap:10px;align-items:flex-start;font-size:15px;line-height:1.45}
+  .ckm{width:21px;height:21px;border-radius:50%;background:#25864A;color:#fff;flex:none;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;margin-top:1px}
+  .relogio{background:var(--creme);border:1px dashed var(--vermelho);border-radius:12px;padding:12px 14px;font-size:14.5px;text-align:center;margin-bottom:18px;line-height:1.45}
+  .relogio b{color:var(--vermelho)}
+
+  /* ---------- GARANTIA ---------- */
+  .garantia{background:var(--creme)}
+  .g-box{display:grid;grid-template-columns:auto 1fr;gap:clamp(20px,3.4vw,38px);align-items:center;background:#fff;border:1px solid var(--borda);border-radius:20px;padding:clamp(26px,4vw,42px)}
+  .selo{width:116px;height:116px;border-radius:50%;background:var(--marinho);color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;position:relative}
+  .selo::before{content:"";position:absolute;inset:6px;border-radius:50%;border:1.5px dashed var(--dourado-claro)}
+  .selo b{font-family:var(--serif);font-weight:400;font-size:48px;line-height:1;color:var(--dourado-claro)}
+  .selo span{font-size:12px;letter-spacing:1.6px;text-transform:uppercase;font-weight:700}
+  .g-box h3{margin-bottom:8px}
+  .g-box p{font-size:15.5px;color:var(--cinza)}
+  @media(max-width:640px){.g-box{grid-template-columns:1fr;text-align:center;justify-items:center}}
+
+  /* ---------- FAQ ---------- */
+  .faq{background:#fff}
+  .lista-faq{max-width:780px;margin:36px auto 0;display:grid;gap:10px;text-align:left}
+  .faq details{background:var(--creme);border:1px solid var(--borda);border-radius:14px;overflow:hidden}
+  .faq summary{padding:18px 20px;font-weight:700;font-size:16px;cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:14px}
+  .faq summary::-webkit-details-marker{display:none}
+  .faq summary::after{content:"+";font-size:24px;color:var(--dourado);font-weight:400;flex:none;line-height:1}
+  .faq details[open] summary::after{content:"–"}
+  .faq details[open] summary{color:var(--marinho)}
+  .faq p{padding:0 20px 18px;font-size:15px;color:var(--cinza);line-height:1.65}
+
+  /* ---------- FINAL + RODAPÉ ---------- */
+  .final{background:var(--marinho);color:#fff;text-align:center;border-top:3px solid var(--dourado)}
+  .final h2{color:#fff;margin-bottom:12px}
+  .final .it{color:var(--dourado-claro)}
+  .final .sub{color:#C9D2E3}
+  .final .btn{margin-top:26px}
+  .final .selos{color:#C9D2E3}
+  .final .selos .ico{color:#fff}
+  footer{background:var(--marinho-esc);color:#9AA6BE;text-align:center;padding:28px 18px 32px;font-size:12.5px;line-height:1.8}
+  footer .links{font-weight:800;letter-spacing:1.2px;color:#fff;margin-bottom:4px}
+  @media(prefers-reduced-motion:reduce){.btn::after{animation:none;display:none}.barra-play .trk div{animation:none}}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-fita" viewBox="0 0 24 24"><path d="M3 9h18v6H3z"/><path d="M7 9v3M11 9v2M15 9v3M19 9v2"/></symbol>
+  <symbol id="i-novelo" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M5 9c4 1 9 5 11 10M8 4.5c3 3 6 8 7 15M4 14c5-1 11 0 16-4"/></symbol>
+  <symbol id="i-agulha" viewBox="0 0 24 24"><path d="M4 20 18 6"/><path d="M18 6c1.5-1.5 3-1 2.5.5S18.5 8 18 6Z"/></symbol>
+  <symbol id="i-nivel" viewBox="0 0 24 24"><path d="M5 19v-4M10 19v-8M15 19v-11M20 19V5"/></symbol>
+  <symbol id="i-relogio" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+  <symbol id="i-ordem" viewBox="0 0 24 24"><circle cx="5.5" cy="6" r="2"/><circle cx="5.5" cy="12" r="2"/><circle cx="5.5" cy="18" r="2"/><path d="M10 6h10M10 12h10M10 18h10"/></symbol>
+  <symbol id="i-play" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9.5"/><path d="M10 8.5v7l6-3.5-6-3.5Z"/></symbol>
+  <symbol id="i-celular" viewBox="0 0 24 24"><rect x="6.5" y="2.5" width="11" height="19" rx="2.5"/><path d="M11 18.5h2"/></symbol>
+  <symbol id="i-pdf" viewBox="0 0 24 24"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8l-5-5Z"/><path d="M14 3v5h5M9 13h6M9 17h4"/></symbol>
+  <symbol id="i-escudo" viewBox="0 0 24 24"><path d="M12 3 4.5 6v5.5c0 4.6 3.2 8.2 7.5 9.5 4.3-1.3 7.5-4.9 7.5-9.5V6L12 3Z"/><path d="m8.8 12 2.2 2.2 4.4-4.4"/></symbol>
+  <symbol id="i-cadeado" viewBox="0 0 24 24"><rect x="5" y="10.5" width="14" height="10" rx="2"/><path d="M8 10.5V7.5a4 4 0 0 1 8 0v3"/></symbol>
+  <symbol id="i-raio" viewBox="0 0 24 24"><path d="M13 2.5 4.5 13.5H12l-1 8 8.5-11H12l1-8Z"/></symbol>
+</svg>
+
+<!-- ============ BARRA ============ -->
+<div class="barra">
+  Faltam <b data-dias>46</b> dias pra ceia de Natal
+  <div class="l2">100 gráficos + 50 videoaulas por R$ <span data-preco>17,90</span></div>
+</div>
+
+<!-- ============ HERO ============ -->
+<header class="hero">
+  <div class="wrap hero-grid">
+    <div class="hero-topo">
+      <span class="tag">100 Gráficos de Caminho de Mesa em Crochê</span>
+      <h1>O caminho de mesa que a visita elogia primeiro, <span class="it">feito pela sua mão</span></h1>
+      <p class="sub">100 modelos, cada um com a ficha que diz o tamanho final, quantos gramas de linha, a agulha, o nível e o tempo, e o gráfico completo numa página pra imprimir. E ainda 50 videoaulas pra quando travar.</p>
+    </div>
+    <div class="hero-img">
+      <div class="mock">
+        <img class="pg1" src="img/paginas-sm/p001-1.webp" width="360" height="509" alt="">
+        <img class="pg2" src="img/paginas-sm/p001-2.webp" width="360" height="509" alt="">
+        <img class="capa" src="img/capa.webp" width="600" height="848" fetchpriority="high" alt="Capa do material 100 Gráficos de Caminho de Mesa em Crochê, com a ficha e o gráfico de um modelo abertos atrás">
+        <div class="selo-v"><b>+50</b><span>video&shy;aulas</span></div>
+      </div>
+    </div>
+    <div class="hero-btn">
+      <a href="#oferta" class="btn ir-oferta">QUERO OS 100 GRÁFICOS<small>por R$ <span data-preco>17,90</span>, pagamento único</small></a>
+    </div>
+    <div class="hero-cards">
+      <div class="stats">
+        <div class="stat"><b>100</b><span>modelos com ficha e gráfico</span></div>
+        <div class="stat"><b>50</b><span>videoaulas pra ver o ponto</span></div>
+        <div class="stat"><b>10</b><span>modelos só de Natal</span></div>
+        <div class="stat"><b>200</b><span>páginas pra ver ou imprimir</span></div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ============ A DOR (G1, S2, S4 dos roteiros) ============ -->
+<section class="dor">
+  <div class="wrap dor-grid">
+    <div class="vert">
+      <!-- B-roll do Heitor (CM011): caminho sendo desenrolado na mesa. Mudo, em loop. -->
+      <video class="auto" muted loop playsinline preload="none" poster="img/video/estende.jpg" width="360" height="640" aria-label="Mãos desenrolando um caminho de mesa de crochê sobre a mesa de madeira">
+        <source src="img/video/estende.mp4" type="video/mp4">
+      </video>
+    </div>
+    <div>
+      <span class="tag">Quem faz crochê conhece</span>
+      <h2>Uma semana de crochê, quase meio quilo de linha, <span class="it">e uma ponta fica diferente da outra</span></h2>
+      <div class="dores">
+        <div class="dor-item"><span class="x">✕</span><div><b>A ponta que não bate</b><span>Você estende na mesa e uma ponta ficou maior, ou ondulada. Aí é desmanchar tudo e começar de novo.</span></div></div>
+        <div class="dor-item"><span class="x">✕</span><div><b>O tamanho errado</b><span>Doze horas de crochê e, na mesa de seis lugares, sobra madeira dos dois lados. Parece um guardanapo comprido.</span></div></div>
+        <div class="dor-item"><span class="x">✕</span><div><b>O vídeo que sumiu</b><span>A peça na metade, você vai procurar a parte três e o vídeo não está mais lá. E o caminho vai pra sacola.</span></div></div>
+      </div>
+      <p class="virada">O problema não é a sua mão. <span class="it">É começar sem saber onde vai chegar.</span></p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ MECANISMO (IA1 + Corpo IA) ============ -->
+<section class="antes">
+  <div class="wrap centro">
+    <span class="tag clara">Antes da primeira corrente</span>
+    <h2>Caminho de mesa bonito <span class="it">começa antes do primeiro ponto</span></h2>
+    <p class="sub" style="margin-top:14px">Antes de puxar a primeira correntinha, você precisa saber três coisas. Sem elas, você desmancha.</p>
+    <div class="tres">
+      <div><div class="n">1</div><b>O tamanho final</b><span>Pra escolher pela sua mesa, e não descobrir na hora de estender.</span></div>
+      <div><div class="n">2</div><b>Quanta linha vai</b><span>Pra comprar de uma vez, do mesmo lote, sem faltar no fim do bico.</span></div>
+      <div><div class="n">3</div><b>A ordem de montagem</b><span>O corpo, as pontas, o bico. Cada coisa na hora certa, pra uma ponta sair igual à outra.</span></div>
+    </div>
+    <p class="fecho">Em cada um dos 100 modelos, essas três coisas <b>já vêm escritas na ficha</b>. Você começa sabendo onde vai chegar.</p>
+  </div>
+</section>
+
+<!-- ============ POR DENTRO ============ -->
+<section class="dentro">
+  <div class="wrap centro">
+    <span class="tag">Por dentro do material</span>
+    <h2>Cada modelo em 2 páginas: <span class="it">a ficha e o gráfico completo</span></h2>
+    <p class="sub" style="margin-top:14px">Na primeira, tudo que você precisa saber antes de começar. Na seguinte, o gráfico inteiro, grande, pra imprimir e deixar do lado.</p>
+  </div>
+  <div class="wrap">
+    <!-- Páginas REAIS (Downloads\Caminho de mesa\Entregável). As 12 aparecem 2x: a 2ª leva é a emenda do loop. -->
+    <div class="trilho" id="paginas">
+      <figure><img src="img/paginas/p001-1.webp" srcset="img/paginas-sm/p001-1.webp 360w, img/paginas/p001-1.webp 600w" sizes="(max-width:780px) 228px, 300px" width="600" height="848" loading="lazy" alt="Projeto 01, Caminho de Mesa Oval Pérola: foto na mesa, tamanho, cores, material, nível, tempo, pontos e ordem de montagem"></figure>
+      <figure><img src="img/paginas/p001-2.webp" srcset="img/paginas-sm/p001-2.webp 360w, img/paginas/p001-2.webp 600w" sizes="(max-width:780px) 228px, 300px" width="600" height="848" loading="lazy" alt="Projeto 01, o gráfico completo da peça inteira e do bico, com a legenda dos pontos"></figure>
+      <figure><img src="img/paginas/p065-1.webp" srcset="img/paginas-sm/p065-1.webp 360w, img/paginas/p065-1.webp 600w" sizes="(max-width:780px) 228px, 300px" width="600" height="873" loading="lazy" alt="Projeto 65, Natal Pinheiros em Filé"></figure>
+      <figure><img src="img/paginas/p065-2.webp" srcset="img/paginas-sm/p065-2.webp 360w, img/paginas/p065-2.webp 600w" sizes="(max-width:780px) 228px, 300px" width="600" height="873" loading="lazy" alt="Projeto 65, o gráfico em filé dos pinheiros"></figure>
+      <figure><img src="img/paginas/p041-1.webp" srcset="img/paginas-sm/p041-1.webp 360w, img/paginas/p041-1.webp 600w" sizes="(max-width:780px) 228px, 300px" width="600" height="848" loading="lazy" alt="Projeto 41, Abacaxi Clássico"></figure>
+      <figure><img src="img/paginas/p011-1.webp" srcset="img/paginas-sm/p011-1.webp 360w, img/paginas/p011-1.webp 600w" sizes="(max-width:780px) 228px, 300px" width="600" height="848" loading="lazy" alt="Projeto 11, Filé Rosas Vermelhas"></figure>
+      <figure><img src="img/paginas/p011-2.webp" srcset="img/paginas-sm/p011-2.webp 360w, img/paginas/p011-2.webp 600w" sizes="(max-width:780px) 228px, 300px" width="600" height="848" loading="lazy" alt="Projeto 11, o gráfico em filé das rosas"></figure>
+      <figure><img src="img/paginas/p069-1.webp" srcset="img/paginas-sm/p069-1.webp 360w, img/paginas/p069-1.webp 600w" sizes="(max-width:780px) 228px, 300px" width="600" height="848" loading="lazy" alt="Projeto 69, Natal Flocos de Neve"></figure>
+      <figure><img src="img/paginas/p087-1.webp" srcset="img/paginas-sm/p087-1.webp 360w, img/paginas/p087-1.webp 600w" sizes="(max-width:780px) 228px, 300px" width="600" height="848" loading="lazy" alt="Projeto 87, Luxo Dourado"></figure>
+      <figure><img src="img/paginas/p053-1.webp" srcset="img/paginas-sm/p053-1.webp 360w, img/paginas/p053-1.webp 600w" sizes="(max-width:780px) 228px, 300px" width="600" height="848" loading="lazy" alt="Projeto 53, Margaridas Emendadas"></figure>
+      <figure><img src="img/paginas/p053-2.webp" srcset="img/paginas-sm/p053-2.webp 360w, img/paginas/p053-2.webp 600w" sizes="(max-width:780px) 228px, 300px" width="600" height="848" loading="lazy" alt="Projeto 53, o gráfico da margarida e da emenda"></figure>
+      <figure><img src="img/paginas/p084-1.webp" srcset="img/paginas-sm/p084-1.webp 360w, img/paginas/p084-1.webp 600w" sizes="(max-width:780px) 228px, 300px" width="600" height="848" loading="lazy" alt="Projeto 84, Rústico Cru com Franjas"></figure>
+      <figure aria-hidden="true"><img src="img/paginas/p001-1.webp" srcset="img/paginas-sm/p001-1.webp 360w, img/paginas/p001-1.webp 600w" sizes="(max-width:780px) 228px, 300px" width="600" height="848" loading="lazy" alt=""></figure>
+      <figure aria-hidden="true"><img src="img/paginas/p001-2.webp" srcset="img/paginas-sm/p001-2.webp 360w, img/paginas/p001-2.webp 600w" sizes="(max-width:780px) 228px, 300px" width="600" height="848" loading="lazy" alt=""></figure>
+      <figure aria-hidden="true"><img src="img/paginas/p065-1.webp" srcset="img/paginas-sm/p065-1.webp 360w, img/paginas/p065-1.webp 600w" sizes="(max-width:780px) 228px, 300px" width="600" height="873" loading="lazy" alt=""></figure>
+      <figure aria-hidden="true"><img src="img/paginas/p065-2.webp" srcset="img/paginas-sm/p065-2.webp 360w, img/paginas/p065-2.webp 600w" sizes="(max-width:780px) 228px, 300px" width="600" height="873" loading="lazy" alt=""></figure>
+      <figure aria-hidden="true"><img src="img/paginas/p041-1.webp" srcset="img/paginas-sm/p041-1.webp 360w, img/paginas/p041-1.webp 600w" sizes="(max-width:780px) 228px, 300px" width="600" height="848" loading="lazy" alt=""></figure>
+      <figure aria-hidden="true"><img src="img/paginas/p011-1.webp" srcset="img/paginas-sm/p011-1.webp 360w, img/paginas/p011-1.webp 600w" sizes="(max-width:780px) 228px, 300px" width="600" height="848" loading="lazy" alt=""></figure>
+      <figure aria-hidden="true"><img src="img/paginas/p011-2.webp" srcset="img/paginas-sm/p011-2.webp 360w, img/paginas/p011-2.webp 600w" sizes="(max-width:780px) 228px, 300px" width="600" height="848" loading="lazy" alt=""></figure>
+      <figure aria-hidden="true"><img src="img/paginas/p069-1.webp" srcset="img/paginas-sm/p069-1.webp 360w, img/paginas/p069-1.webp 600w" sizes="(max-width:780px) 228px, 300px" width="600" height="848" loading="lazy" alt=""></figure>
+      <figure aria-hidden="true"><img src="img/paginas/p087-1.webp" srcset="img/paginas-sm/p087-1.webp 360w, img/paginas/p087-1.webp 600w" sizes="(max-width:780px) 228px, 300px" width="600" height="848" loading="lazy" alt=""></figure>
+      <figure aria-hidden="true"><img src="img/paginas/p053-1.webp" srcset="img/paginas-sm/p053-1.webp 360w, img/paginas/p053-1.webp 600w" sizes="(max-width:780px) 228px, 300px" width="600" height="848" loading="lazy" alt=""></figure>
+      <figure aria-hidden="true"><img src="img/paginas/p053-2.webp" srcset="img/paginas-sm/p053-2.webp 360w, img/paginas/p053-2.webp 600w" sizes="(max-width:780px) 228px, 300px" width="600" height="848" loading="lazy" alt=""></figure>
+      <figure aria-hidden="true"><img src="img/paginas/p084-1.webp" srcset="img/paginas-sm/p084-1.webp 360w, img/paginas/p084-1.webp 600w" sizes="(max-width:780px) 228px, 300px" width="600" height="848" loading="lazy" alt=""></figure>
+    </div>
+    <p class="dica-arraste centro">Arraste pro lado para ver mais páginas</p>
+
+    <div class="partes">
+      <div class="parte"><svg class="ico"><use href="#i-fita"/></svg><b>Tamanho final</b><span>Em centímetros, pra escolher pela sua mesa.</span></div>
+      <div class="parte"><svg class="ico"><use href="#i-novelo"/></svg><b>Gramas de linha</b><span>Quanto de cada cor, e qual barbante.</span></div>
+      <div class="parte"><svg class="ico"><use href="#i-agulha"/></svg><b>Agulha</b><span>O número certo pra peça não repuxar.</span></div>
+      <div class="parte"><svg class="ico"><use href="#i-nivel"/></svg><b>Nível</b><span>Iniciante, intermediário ou avançado.</span></div>
+      <div class="parte"><svg class="ico"><use href="#i-relogio"/></svg><b>Tempo</b><span>Quantas horas de crochê a peça leva.</span></div>
+      <div class="parte"><svg class="ico"><use href="#i-ordem"/></svg><b>Ordem de montagem</b><span>O que fazer primeiro, e uma dica do modelo.</span></div>
+    </div>
+
+    <div class="cel-bloco">
+      <div class="celular">
+        <!-- gravação real do PDF no celular (Downloads\Caminho de mesa\Vídeo do Entregável.mp4), muda e em loop -->
+        <video class="auto" muted loop playsinline preload="none" poster="img/video/pdf.jpg" width="320" height="650" aria-label="O PDF dos 100 gráficos sendo rolado no celular">
+          <source src="img/video/pdf.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div>
+        <h3>Abre no celular <span class="it">ou imprime o gráfico</span></h3>
+        <p>É um PDF de 200 páginas. Olha a ficha no celular, imprime só a página do gráfico do modelo que você escolheu e deixa do lado da linha. Vai riscando as carreiras com lápis.</p>
+        <div style="margin-top:22px"><a href="#oferta" class="btn ir-oferta">QUERO OS 100 GRÁFICOS</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ MESA DE 6 LUGARES (IA2 + S2) ============
+     Tamanhos = campo "tamanho" do catalogo.json (90 a 150 cm de comprimento). Sem regra de "tamanho ideal" inventada:
+     a página só diz que o tamanho final está na ficha pra escolher pela mesa. -->
+<section class="mesa6">
+  <div class="wrap mesa6-grid">
+    <div>
+      <span class="tag">A pergunta que mais aparece</span>
+      <h2>Que tamanho fica bonito <span class="it">numa mesa de 6 lugares?</span></h2>
+      <p class="sub" style="margin-top:14px">Quase ninguém descobre antes. Só quando a peça está pronta e estendida. Aqui é o contrário: todo modelo diz o tamanho final na ficha. Você mede a mesa, olha a ficha e escolhe antes de pegar a agulha.</p>
+      <ul>
+        <li><img src="img/fotos/003.webp" width="640" height="320" loading="lazy" alt=""><div><b>Pra mesa pequena</b><span>a partir de 90 cm de comprimento</span></div></li>
+        <li><img src="img/fotos/011.webp" width="640" height="320" loading="lazy" alt=""><div><b>Pra mesa de 6 lugares</b><span>de 110 a 140 cm, a maioria dos modelos</span></div></li>
+        <li><img src="img/fotos/084.webp" width="640" height="320" loading="lazy" alt=""><div><b>Pra mesa comprida</b><span>até 150 cm, com franja nas pontas</span></div></li>
+      </ul>
+    </div>
+    <div class="planta" aria-hidden="true">
+      <!-- planta de mesa de 6 lugares vista de cima, com o caminho no centro -->
+      <svg viewBox="0 0 400 300">
+        <g fill="#E8DCC4" stroke="#C9B793" stroke-width="2">
+          <rect x="88" y="30" width="56" height="36" rx="10"/><rect x="172" y="30" width="56" height="36" rx="10"/><rect x="256" y="30" width="56" height="36" rx="10"/>
+          <rect x="88" y="234" width="56" height="36" rx="10"/><rect x="172" y="234" width="56" height="36" rx="10"/><rect x="256" y="234" width="56" height="36" rx="10"/>
+        </g>
+        <rect x="50" y="70" width="300" height="160" rx="10" fill="#B8834F"/>
+        <rect x="50" y="70" width="300" height="160" rx="10" fill="none" stroke="#9A6B3E" stroke-width="3"/>
+        <g fill="#fff" stroke="#E2D5BB" stroke-width="2"><circle cx="116" cy="93" r="16"/><circle cx="200" cy="93" r="16"/><circle cx="284" cy="93" r="16"/><circle cx="116" cy="207" r="16"/><circle cx="200" cy="207" r="16"/><circle cx="284" cy="207" r="16"/></g>
+        <rect x="84" y="136" width="232" height="38" rx="19" fill="#F3EAD6" stroke="#C29A45" stroke-width="3" stroke-dasharray="1 5" stroke-linecap="round"/>
+        <rect x="92" y="143" width="216" height="24" rx="12" fill="none" stroke="#D9C79F" stroke-width="1.5"/>
+        <g stroke="#1B2B4B" stroke-width="2" fill="none"><path d="M84 124h232"/><path d="M84 118v12M316 118v12"/></g>
+        <rect x="156" y="115" width="88" height="18" rx="4" fill="#1B2B4B"/>
+        <text x="200" y="128" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="11" font-weight="800" fill="#E6CD8C">TAMANHO FINAL</text>
+      </svg>
+      <p>O tamanho de cada modelo está na ficha, em centímetros.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ GALERIA (gerada do catalogo.json por _geracao/galeria.cjs) ============ -->
+<section class="galeria">
+  <div class="wrap centro">
+    <span class="tag">Alguns dos 100 modelos</span>
+    <h2>Oval, filé, abacaxi, flores, rústico, luxo <span class="it">e 10 de Natal</span></h2>
+    <div class="filtros" id="filtros" role="group" aria-label="Filtrar modelos">
+      <button type="button" data-f="top" aria-pressed="true">Todos</button>
+      <button type="button" data-f="natal" aria-pressed="false">Natal</button>
+      <button type="button" data-f="oval" aria-pressed="false">Oval</button>
+      <button type="button" data-f="file" aria-pressed="false">Filé</button>
+      <button type="button" data-f="abacaxi" aria-pressed="false">Abacaxi</button>
+      <button type="button" data-f="flores" aria-pressed="false">Flores</button>
+      <button type="button" data-f="rustico" aria-pressed="false">Rústico</button>
+      <button type="button" data-f="luxo" aria-pressed="false">Luxo</button>
+    </div>
+    <div class="mods" id="mods">
+<!-- GALERIA:INICIO (gerado, não editar à mão) -->
+      <figure class="mod" data-c="oval" data-top>
+        <img src="img/fotos/001.webp" width="640" height="320" loading="lazy" alt="Caminho de Mesa Oval Pérola, caminho de mesa em crochê na mesa posta">
+        <figcaption><b>Caminho de Mesa Oval Pérola</b><span>100 x 40 cm · 430 g · Intermediário · 12 h</span></figcaption>
+      </figure>
+      <figure class="mod" data-c="natal" data-top>
+        <img src="img/fotos/065.webp" width="640" height="320" loading="lazy" alt="Natal Pinheiros em Filé, caminho de mesa em crochê na mesa posta">
+        <figcaption><b>Natal Pinheiros em Filé</b><span>120 x 35 cm · 350 g · Intermediário · 12 h</span></figcaption>
+      </figure>
+      <figure class="mod" data-c="file" data-top>
+        <img src="img/fotos/011.webp" width="640" height="320" loading="lazy" alt="Filé Rosas Vermelhas, caminho de mesa em crochê na mesa posta">
+        <figcaption><b>Filé Rosas Vermelhas</b><span>140 x 35 cm · 450 g · Intermediário · 14 h</span></figcaption>
+      </figure>
+      <figure class="mod" data-c="abacaxi" data-top>
+        <img src="img/fotos/041.webp" width="640" height="320" loading="lazy" alt="Abacaxi Clássico, caminho de mesa em crochê na mesa posta">
+        <figcaption><b>Abacaxi Clássico</b><span>110 x 40 cm · 150 g · Avançado · 33 h</span></figcaption>
+      </figure>
+      <figure class="mod" data-c="flores" data-top>
+        <img src="img/fotos/053.webp" width="640" height="320" loading="lazy" alt="Margaridas Emendadas, caminho de mesa em crochê na mesa posta">
+        <figcaption><b>Margaridas Emendadas</b><span>120 x 35 cm · 450 g · Intermediário · 14 h</span></figcaption>
+      </figure>
+      <figure class="mod" data-c="luxo" data-top>
+        <img src="img/fotos/087.webp" width="640" height="320" loading="lazy" alt="Luxo Dourado, caminho de mesa em crochê na mesa posta">
+        <figcaption><b>Luxo Dourado</b><span>120 x 45 cm · 500 g · Avançado · 15 h</span></figcaption>
+      </figure>
+      <figure class="mod" data-c="natal" data-top>
+        <img src="img/fotos/067.webp" width="640" height="320" loading="lazy" alt="Natal Bico-de-Papagaio, caminho de mesa em crochê na mesa posta">
+        <figcaption><b>Natal Bico-de-Papagaio</b><span>120 x 40 cm · 500 g · Intermediário · 16 h</span></figcaption>
+      </figure>
+      <figure class="mod" data-c="rustico" data-top>
+        <img src="img/fotos/084.webp" width="640" height="320" loading="lazy" alt="Rústico Cru com Franjas, caminho de mesa em crochê na mesa posta">
+        <figcaption><b>Rústico Cru com Franjas</b><span>150 x 35 cm · 600 g · Iniciante · 10 h</span></figcaption>
+      </figure>
+      <figure class="mod" data-c="abacaxi" data-top>
+        <img src="img/fotos/005.webp" width="640" height="320" loading="lazy" alt="Oval Abacaxi Clássico, caminho de mesa em crochê na mesa posta">
+        <figcaption><b>Oval Abacaxi Clássico</b><span>100 x 45 cm · 400 g · Avançado · 17 h</span></figcaption>
+      </figure>
+      <figure class="mod" data-c="file" data-top>
+        <img src="img/fotos/022.webp" width="640" height="320" loading="lazy" alt="Filé Girassol Moderno, caminho de mesa em crochê na mesa posta">
+        <figcaption><b>Filé Girassol Moderno</b><span>120 x 40 cm · 450 g · Intermediário · 14 h</span></figcaption>
+      </figure>
+      <figure class="mod" data-c="natal" data-top>
+        <img src="img/fotos/069.webp" width="640" height="320" loading="lazy" alt="Natal Flocos de Neve, caminho de mesa em crochê na mesa posta">
+        <figcaption><b>Natal Flocos de Neve</b><span>140 x 35 cm · 450 g · Intermediário · 14 h</span></figcaption>
+      </figure>
+      <figure class="mod" data-c="flores" data-top>
+        <img src="img/fotos/091.webp" width="640" height="320" loading="lazy" alt="Rosas em Relevo, caminho de mesa em crochê na mesa posta">
+        <figcaption><b>Rosas em Relevo</b><span>120 x 35 cm · 450 g · Avançado · 14 h</span></figcaption>
+      </figure>
+      <figure class="mod" data-c="oval">
+        <img src="img/fotos/002.webp" width="640" height="320" loading="lazy" alt="Oval Leque Dourado, caminho de mesa em crochê na mesa posta">
+        <figcaption><b>Oval Leque Dourado</b><span>110 x 40 cm · 450 g · Intermediário · 13 h</span></figcaption>
+      </figure>
+      <figure class="mod" data-c="oval">
+        <img src="img/fotos/009.webp" width="640" height="320" loading="lazy" alt="Oval Terracota Rústico, caminho de mesa em crochê na mesa posta">
+        <figcaption><b>Oval Terracota Rústico</b><span>100 x 38 cm · 450 g · Iniciante · 9 h</span></figcaption>
+      </figure>
+      <figure class="mod" data-c="abacaxi">
+        <img src="img/fotos/043.webp" width="640" height="320" loading="lazy" alt="Abacaxi Pavão, caminho de mesa em crochê na mesa posta">
+        <figcaption><b>Abacaxi Pavão</b><span>100 x 45 cm · 300 g · Avançado · 17 h</span></figcaption>
+      </figure>
+      <figure class="mod" data-c="abacaxi">
+        <img src="img/fotos/097.webp" width="640" height="320" loading="lazy" alt="Ondas Turquesa, caminho de mesa em crochê na mesa posta">
+        <figcaption><b>Ondas Turquesa</b><span>110 x 35 cm · 300 g · Intermediário · 14 h</span></figcaption>
+      </figure>
+      <figure class="mod" data-c="file">
+        <img src="img/fotos/013.webp" width="640" height="320" loading="lazy" alt="Filé Corações, caminho de mesa em crochê na mesa posta">
+        <figcaption><b>Filé Corações</b><span>120 x 35 cm · 350 g · Iniciante · 12 h</span></figcaption>
+      </figure>
+      <figure class="mod" data-c="file">
+        <img src="img/fotos/096.webp" width="640" height="320" loading="lazy" alt="Corações Rosa em Filé, caminho de mesa em crochê na mesa posta">
+        <figcaption><b>Corações Rosa em Filé</b><span>120 x 35 cm · 350 g · Iniciante · 12 h</span></figcaption>
+      </figure>
+      <figure class="mod" data-c="flores">
+        <img src="img/fotos/049.webp" width="640" height="320" loading="lazy" alt="Squares Flor Lilás, caminho de mesa em crochê na mesa posta">
+        <figcaption><b>Squares Flor Lilás</b><span>120 x 40 cm · 500 g · Intermediário · 16 h</span></figcaption>
+      </figure>
+      <figure class="mod" data-c="flores">
+        <img src="img/fotos/056.webp" width="640" height="320" loading="lazy" alt="Trilho de Flores Rosadas, caminho de mesa em crochê na mesa posta">
+        <figcaption><b>Trilho de Flores Rosadas</b><span>120 x 35 cm · 450 g · Intermediário · 14 h</span></figcaption>
+      </figure>
+      <figure class="mod" data-c="flores">
+        <img src="img/fotos/062.webp" width="640" height="320" loading="lazy" alt="Flores em Relevo Lilás, caminho de mesa em crochê na mesa posta">
+        <figcaption><b>Flores em Relevo Lilás</b><span>120 x 40 cm · 500 g · Avançado · 16 h</span></figcaption>
+      </figure>
+      <figure class="mod" data-c="flores">
+        <img src="img/fotos/079.webp" width="640" height="320" loading="lazy" alt="Girassóis Hexagonais, caminho de mesa em crochê na mesa posta">
+        <figcaption><b>Girassóis Hexagonais</b><span>120 x 40 cm · 500 g · Intermediário · 16 h</span></figcaption>
+      </figure>
+      <figure class="mod" data-c="flores">
+        <img src="img/fotos/095.webp" width="640" height="320" loading="lazy" alt="Barrado de Tulipas, caminho de mesa em crochê na mesa posta">
+        <figcaption><b>Barrado de Tulipas</b><span>110 x 35 cm · 350 g · Intermediário · 9 h</span></figcaption>
+      </figure>
+      <figure class="mod" data-c="rustico">
+        <img src="img/fotos/029.webp" width="640" height="320" loading="lazy" alt="Leque Aberto com Borlas, caminho de mesa em crochê na mesa posta">
+        <figcaption><b>Leque Aberto com Borlas</b><span>140 x 35 cm · 550 g · Iniciante · 10 h</span></figcaption>
+      </figure>
+      <figure class="mod" data-c="rustico">
+        <img src="img/fotos/086.webp" width="640" height="320" loading="lazy" alt="Rústico Listrado Café, caminho de mesa em crochê na mesa posta">
+        <figcaption><b>Rústico Listrado Café</b><span>140 x 35 cm · 550 g · Iniciante · 10 h</span></figcaption>
+      </figure>
+      <figure class="mod" data-c="luxo">
+        <img src="img/fotos/088.webp" width="640" height="320" loading="lazy" alt="Luxo Preto e Dourado, caminho de mesa em crochê na mesa posta">
+        <figcaption><b>Luxo Preto e Dourado</b><span>110 x 40 cm · 300 g · Avançado · 16 h</span></figcaption>
+      </figure>
+      <figure class="mod" data-c="luxo">
+        <img src="img/fotos/089.webp" width="640" height="320" loading="lazy" alt="Luxo Branco Neve, caminho de mesa em crochê na mesa posta">
+        <figcaption><b>Luxo Branco Neve</b><span>140 x 40 cm · 250 g · Avançado · 26 h</span></figcaption>
+      </figure>
+      <figure class="mod" data-c="natal">
+        <img src="img/fotos/066.webp" width="640" height="320" loading="lazy" alt="Natal Papai Noel, caminho de mesa em crochê na mesa posta">
+        <figcaption><b>Natal Papai Noel</b><span>100 x 35 cm · 300 g · Intermediário · 10 h</span></figcaption>
+      </figure>
+      <figure class="mod" data-c="natal">
+        <img src="img/fotos/068.webp" width="640" height="320" loading="lazy" alt="Natal Estrelas Vermelhas, caminho de mesa em crochê na mesa posta">
+        <figcaption><b>Natal Estrelas Vermelhas</b><span>120 x 35 cm · 450 g · Intermediário · 14 h</span></figcaption>
+      </figure>
+      <figure class="mod" data-c="natal">
+        <img src="img/fotos/070.webp" width="640" height="320" loading="lazy" alt="Natal Sinos, caminho de mesa em crochê na mesa posta">
+        <figcaption><b>Natal Sinos</b><span>100 x 35 cm · 300 g · Intermediário · 10 h</span></figcaption>
+      </figure>
+      <figure class="mod" data-c="natal">
+        <img src="img/fotos/071.webp" width="640" height="320" loading="lazy" alt="Natal Velas e Ramos, caminho de mesa em crochê na mesa posta">
+        <figcaption><b>Natal Velas e Ramos</b><span>110 x 40 cm · 300 g · Avançado · 13 h</span></figcaption>
+      </figure>
+      <figure class="mod" data-c="natal">
+        <img src="img/fotos/072.webp" width="640" height="320" loading="lazy" alt="Natal Degraus com Borla, caminho de mesa em crochê na mesa posta">
+        <figcaption><b>Natal Degraus com Borla</b><span>100 x 35 cm · 350 g · Iniciante · 10 h</span></figcaption>
+      </figure>
+      <figure class="mod" data-c="natal">
+        <img src="img/fotos/073.webp" width="640" height="320" loading="lazy" alt="Natal Árvores com Borlas, caminho de mesa em crochê na mesa posta">
+        <figcaption><b>Natal Árvores com Borlas</b><span>120 x 35 cm · 350 g · Intermediário · 12 h</span></figcaption>
+      </figure>
+      <figure class="mod" data-c="natal">
+        <img src="img/fotos/074.webp" width="640" height="320" loading="lazy" alt="Natal Renas Nórdicas, caminho de mesa em crochê na mesa posta">
+        <figcaption><b>Natal Renas Nórdicas</b><span>120 x 35 cm · 350 g · Intermediário · 12 h</span></figcaption>
+      </figure>
+<!-- GALERIA:FIM -->
+    </div>
+    <p class="gal-nota">Fotos das fichas do material. Tamanho, linha, nível e tempo como estão em cada ficha.</p>
+    <div style="margin-top:32px"><a href="#oferta" class="btn ir-oferta">QUERO ESCOLHER O MEU</a></div>
+  </div>
+</section>
+
+<!-- ============ NATAL (G2, G4, G7, IA3, IA4, S3) ============ -->
+<section class="natal">
+  <div class="wrap natal-grid">
+    <div>
+      <span class="tag">10 modelos só de Natal</span>
+      <h2>A mesa da ceia vai estar cheia de gente olhando. <span class="it">Imagina um caminho feito por você.</span></h2>
+      <p>Pinheiros, sinos, flocos de neve, bico-de-papagaio, renas. É a peça que fica no centro da ceia, a primeira coisa que todo mundo vê. E quando alguém perguntar de qual loja você comprou, <b>você só sorri e fala: fui eu que fiz.</b></p>
+      <p>Pega encomenda de Natal? A ficha já diz quanta linha vai e quantas horas leva. Você sabe na hora quanto cobrar de material e quando dá pra entregar. Quem deixa pra começar em dezembro não entrega.</p>
+      <div class="contagem">
+        <div><b data-dias>46</b>dias até o Natal</div>
+        <div><b>10 a 16 h</b>de crochê nos modelos de Natal</div>
+      </div>
+    </div>
+    <div class="vert">
+      <!-- B-roll do Heitor (112656eb - Trim): caminho de Natal com pinheiro na mesa. Mudo, em loop. -->
+      <video class="auto" muted loop playsinline preload="none" poster="img/video/natal.jpg" width="360" height="640" aria-label="Caminho de mesa de Natal em crochê com pinheiro, sobre a mesa">
+        <source src="img/video/natal.mp4" type="video/mp4">
+      </video>
+    </div>
+  </div>
+  <div class="wrap">
+    <div class="nat-trilho">
+<!-- NATAL:INICIO (gerado, não editar à mão) -->
+      <figure class="nat"><img src="img/fotos/065.webp" width="640" height="320" loading="lazy" alt="Natal Pinheiros em Filé"><figcaption><b>Pinheiros em Filé</b><span>120 x 35 cm · 12 h</span></figcaption></figure>
+      <figure class="nat"><img src="img/fotos/066.webp" width="640" height="320" loading="lazy" alt="Natal Papai Noel"><figcaption><b>Papai Noel</b><span>100 x 35 cm · 10 h</span></figcaption></figure>
+      <figure class="nat"><img src="img/fotos/067.webp" width="640" height="320" loading="lazy" alt="Natal Bico-de-Papagaio"><figcaption><b>Bico-de-Papagaio</b><span>120 x 40 cm · 16 h</span></figcaption></figure>
+      <figure class="nat"><img src="img/fotos/068.webp" width="640" height="320" loading="lazy" alt="Natal Estrelas Vermelhas"><figcaption><b>Estrelas Vermelhas</b><span>120 x 35 cm · 14 h</span></figcaption></figure>
+      <figure class="nat"><img src="img/fotos/069.webp" width="640" height="320" loading="lazy" alt="Natal Flocos de Neve"><figcaption><b>Flocos de Neve</b><span>140 x 35 cm · 14 h</span></figcaption></figure>
+      <figure class="nat"><img src="img/fotos/070.webp" width="640" height="320" loading="lazy" alt="Natal Sinos"><figcaption><b>Sinos</b><span>100 x 35 cm · 10 h</span></figcaption></figure>
+      <figure class="nat"><img src="img/fotos/071.webp" width="640" height="320" loading="lazy" alt="Natal Velas e Ramos"><figcaption><b>Velas e Ramos</b><span>110 x 40 cm · 13 h</span></figcaption></figure>
+      <figure class="nat"><img src="img/fotos/072.webp" width="640" height="320" loading="lazy" alt="Natal Degraus com Borla"><figcaption><b>Degraus com Borla</b><span>100 x 35 cm · 10 h</span></figcaption></figure>
+      <figure class="nat"><img src="img/fotos/073.webp" width="640" height="320" loading="lazy" alt="Natal Árvores com Borlas"><figcaption><b>Árvores com Borlas</b><span>120 x 35 cm · 12 h</span></figcaption></figure>
+      <figure class="nat"><img src="img/fotos/074.webp" width="640" height="320" loading="lazy" alt="Natal Renas Nórdicas"><figcaption><b>Renas Nórdicas</b><span>120 x 35 cm · 12 h</span></figcaption></figure>
+<!-- NATAL:FIM -->
+    </div>
+  </div>
+</section>
+
+<!-- ============ VIDEOAULAS ============
+     "50 videoaulas" = promessa dos roteiros dos criativos. O trecho é o "Ex de Vídeo Aula.mp4" do Heitor.
+     CONFERIR: as 50 aulas precisam existir (área de membros) antes de vender. -->
+<section class="aulas">
+  <div class="wrap aulas-grid">
+    <div class="tablet">
+      <div class="tela">
+        <video class="auto" muted loop playsinline preload="none" poster="img/video/aula.jpg" width="640" height="360" aria-label="Trecho de videoaula: mãos fazendo o ponto em close">
+          <source src="img/video/aula.mp4" type="video/mp4">
+        </video>
+        <div class="ctrl" aria-hidden="true">
+          <i class="p"><svg viewBox="0 0 64 64"><path d="M32 12 A20 20 0 1 0 52 32" fill="none" stroke="#fff" stroke-width="5" stroke-linecap="round"/><path d="M32 2 L32 22 L20 12 Z" fill="#fff"/><text x="32" y="40" text-anchor="middle" font-family="Inter,Arial" font-weight="800" font-size="17" fill="#fff">10</text></svg></i>
+          <i class="g"><svg viewBox="0 0 50 50"><rect x="11" y="9" width="10" height="32" rx="3" fill="#fff"/><rect x="29" y="9" width="10" height="32" rx="3" fill="#fff"/></svg></i>
+          <i class="p"><svg viewBox="0 0 64 64"><path d="M32 12 A20 20 0 1 1 12 32" fill="none" stroke="#fff" stroke-width="5" stroke-linecap="round"/><path d="M32 2 L32 22 L44 12 Z" fill="#fff"/><text x="32" y="40" text-anchor="middle" font-family="Inter,Arial" font-weight="800" font-size="17" fill="#fff">10</text></svg></i>
+        </div>
+        <div class="barra-play" aria-hidden="true">
+          <div class="tempos"><span>2:14</span><span>7:12</span></div>
+          <div class="trk"><div></div></div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <span class="tag clara">E ainda 50 videoaulas</span>
+      <h2>Travou num ponto? <span class="it">Dá o play.</span></h2>
+      <p>Junto com os gráficos vêm 50 videoaulas pra você ver o ponto sendo feito de pertinho, sempre que travar. Pausa, volta 10 segundos, faz de novo. No seu tempo.</p>
+      <ul>
+        <li><svg class="ico"><use href="#i-play"/></svg><span>As mãos fazendo o ponto, em close</span></li>
+        <li><svg class="ico"><use href="#i-play"/></svg><span>Não somem da internet no meio da sua peça</span></li>
+        <li><svg class="ico"><use href="#i-play"/></svg><span>No mesmo acesso dos gráficos, pelo celular</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PRA QUÊ ============ -->
+<section class="usos">
+  <div class="wrap centro">
+    <span class="tag">Pra sua mesa, pra presentear ou pra vender</span>
+    <h2>Um caminho de mesa <span class="it">muda a casa inteira</span></h2>
+    <p class="sub" style="margin-top:14px">Ele fica no centro, todo mundo senta em volta. É a peça de crochê que mais aparece.</p>
+    <div class="usos-lista">
+      <div class="uso">
+        <img src="img/fotos/087.webp" width="640" height="320" loading="lazy" alt="Caminho de mesa Luxo Dourado na mesa posta">
+        <div class="txt"><span class="num">1</span><b>Pra sua mesa</b><span>Um pra cada época: o de flores no dia a dia, o de Natal na ceia, o de Páscoa em abril. A mesa muda de cara sem trocar nada.</span></div>
+      </div>
+      <div class="uso">
+        <img src="img/fotos/056.webp" width="640" height="320" loading="lazy" alt="Caminho de mesa com flores rosadas na mesa posta">
+        <div class="txt"><span class="num">2</span><b>Pra presentear</b><span>Pra mãe, pra sogra, pra amiga que acabou de mudar. Chega com cara de presente caro, feito por você.</span></div>
+      </div>
+      <div class="uso">
+        <img src="img/fotos/067.webp" width="640" height="320" loading="lazy" alt="Caminho de mesa de Natal bico-de-papagaio na mesa posta">
+        <!-- R$ 220–230 = preço da peça pronta em ateliês, levantado na Biblioteca de Anúncios da Meta em 06/11/2026
+             (memória trilho-mesa-croche-mercado, pesquisa/trilho-mesa/). -->
+        <div class="txt"><span class="num">3</span><b>Pra vender</b><span>Cada ficha diz quantos gramas de linha vão e quantas horas leva. Você sabe o custo do material e o seu tempo antes de passar o preço.</span>
+          <span class="destaque">Em ateliê, um caminho de mesa de crochê pronto é vendido por <b>R$ 220 a R$ 230</b>.</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ O QUE VOCÊ RECEBE ============ -->
+<section class="recebe">
+  <div class="wrap centro">
+    <span class="tag">O que você vai receber</span>
+    <h2>Os 100 gráficos com ficha <span class="it">e as 50 videoaulas</span></h2>
+    <div class="recebe-mock" aria-hidden="true">
+      <img class="a" src="img/paginas-sm/p065-1.webp" width="360" height="524" loading="lazy" alt="">
+      <img class="b" src="img/paginas-sm/p011-2.webp" width="360" height="509" loading="lazy" alt="">
+      <img class="capa" src="img/capa.webp" width="600" height="848" loading="lazy" alt="">
+      <img class="c" src="img/paginas-sm/p041-1.webp" width="360" height="509" loading="lazy" alt="">
+      <img class="d" src="img/paginas-sm/p053-2.webp" width="360" height="509" loading="lazy" alt="">
+    </div>
+    <!-- contagem por técnica = catalogo.json (campo "tecnica", soma 100) -->
+    <ul class="cats">
+      <li><b>32</b>Em filé: rosas, corações, girassóis, pinheiros, renas</li>
+      <li><b>25</b>De motivos emendados: flores, squares, hexágonos, mandalas</li>
+      <li><b>17</b>Rendados e rústicos, com franja e borla</li>
+      <li><b>10</b>De abacaxi, do clássico ao luxo preto e dourado</li>
+      <li><b>8</b>Ovais com bico, como o da vó</li>
+      <li><b>8</b>Com ponta em V, leques e degraus</li>
+    </ul>
+    <p class="temas">No meio deles: <b>10 de Natal</b>, 4 de luxo, de Páscoa, de outono, de girassol e de morango.</p>
+    <div class="duplo">
+      <div class="duplo-cols">
+        <div class="duplo-col"><svg class="ico"><use href="#i-pdf"/></svg><b>PDF de 200 páginas</b><span>A ficha e o gráfico de cada modelo</span></div>
+        <div class="duplo-col"><svg class="ico"><use href="#i-play"/></svg><b>50 videoaulas</b><span>O ponto sendo feito, em close</span></div>
+        <div class="duplo-col"><svg class="ico"><use href="#i-celular"/></svg><b>No celular ou impresso</b><span>Abre em celular, tablet ou computador</span></div>
+      </div>
+      <div class="faixa">100 MODELOS <em>•</em> 200 PÁGINAS <em>•</em> 50 VIDEOAULAS <em>•</em> ACESSO IMEDIATO</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ DEPOIMENTOS ============
+     TROCAR: depoimentos. NÃO inventar. A seção fica ESCONDIDA enquanto #deps-trilho não tiver <figure class="dep-slide"> com print real.
+     Para preencher: img/depoimentos/dep-01.webp ... e um bloco por print:
+       <figure class="dep-slide"><img src="img/depoimentos/dep-01.webp" width="560" height="996" loading="lazy" alt="..."></figure>
+     Para ver a estrutura antes dos prints: abrir com ?previa=1 -->
+<section class="deps" id="depoimentos" hidden>
+  <div class="wrap centro">
+    <span class="tag">Quem já fez</span>
+    <h2>Veja o que estão dizendo</h2>
+  </div>
+  <div class="dep-palco" id="deps">
+    <button class="dep-seta ant" type="button" aria-label="Depoimento anterior">‹</button>
+    <div class="dep-trilho" id="deps-trilho">
+    </div>
+    <button class="dep-seta prox" type="button" aria-label="Próximo depoimento">›</button>
+  </div>
+  <div class="dep-dots" id="deps-dots"></div>
+</section>
+
+<!-- ============ OFERTA ============ -->
+<section class="oferta" id="oferta">
+  <div class="wrap centro">
+    <span class="tag">Comece o seu ainda hoje</span>
+    <h2>Tudo por um <span class="it">pagamento só</span></h2>
+    <p class="sub" style="margin-top:10px">Sem mensalidade. Paga uma vez e é seu.</p>
+
+    <div class="plano">
+      <span class="fita">Acesso completo</span>
+      <img class="plano-capa" src="img/capa.webp" width="600" height="848" loading="lazy" alt="Capa do material 100 Gráficos de Caminho de Mesa em Crochê">
+      <div class="plano-nome">100 Gráficos de Caminho de Mesa em Crochê</div>
+      <div class="plano-preco"><small>R$</small><span data-preco>17,90</span></div>
+      <p class="plano-obs">pagamento único · acesso imediato</p>
+      <ul class="inclui">
+        <li><span class="ckm">✓</span><span><b>100 modelos</b> de caminho de mesa em crochê</span></li>
+        <li><span class="ckm">✓</span><span>Ficha de cada modelo: tamanho final, gramas de linha, agulha, nível, tempo e ordem de montagem</span></li>
+        <li><span class="ckm">✓</span><span>O gráfico completo numa página, pra imprimir</span></li>
+        <li><span class="ckm">✓</span><span><b>50 videoaulas</b> pra ver o ponto sendo feito</span></li>
+        <li><span class="ckm">✓</span><span>Oval, filé, abacaxi, flores, rústico, luxo e <b>10 de Natal</b></span></li>
+        <li><span class="ckm">✓</span><span>PDF pro celular ou pra imprimir, com acesso vitalício</span></li>
+      </ul>
+      <div class="relogio">Faltam <b><span data-dias>46</span> dias</b> pro Natal. Dá tempo de fazer o seu caminho pra ceia, se começar agora.</div>
+      <!-- link vem de window.CHECKOUT no <head> -->
+      <a href="#checkout" class="btn full ir-checkout">QUERO OS 100 GRÁFICOS</a>
+      <div class="selos">
+        <span><svg class="ico"><use href="#i-cadeado"/></svg>Compra segura</span>
+        <span><svg class="ico"><use href="#i-escudo"/></svg>7 dias de garantia</span>
+        <span><svg class="ico"><use href="#i-raio"/></svg>Acesso imediato</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ GARANTIA ============ -->
+<section class="garantia">
+  <div class="wrap estreito">
+    <div class="g-box">
+      <div class="selo"><b>7</b><span>dias</span></div>
+      <div>
+        <h3>Garantia de 7 dias</h3>
+        <p>Entra, escolhe um modelo, abre a ficha e o gráfico. Se em até 7 dias você achar que não é pra você, é só pedir o reembolso e devolvemos 100% do valor. Sem pergunta e sem burocracia.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section class="faq">
+  <div class="wrap centro">
+    <span class="tag">Dúvidas</span>
+    <h2>Perguntas frequentes</h2>
+    <div class="lista-faq">
+      <details open>
+        <summary>Sou iniciante. Consigo fazer?</summary>
+        <p>Consegue. Cada ficha diz o nível do modelo: são 17 de nível Iniciante, 60 Intermediário e 23 Avançado. Comece pelos iniciantes e, quando travar num ponto, veja a videoaula.</p>
+      </details>
+      <details>
+        <summary>Eu não sei ler gráfico. E agora?</summary>
+        <p>Todo gráfico tem a legenda dos símbolos na própria página: correntinha, ponto baixo, ponto alto, picô. E as videoaulas mostram o ponto sendo feito, pra você ligar o símbolo ao movimento da agulha.</p>
+      </details>
+      <details>
+        <summary>Que linha e que agulha eu uso?</summary>
+        <p>A maioria dos modelos é em barbante nº 6 com agulha 3,5 mm. Alguns usam barbante nº 4 ou nº 8, e os mais rendados, linha fina. Está tudo escrito na ficha de cada modelo, com os gramas de cada cor.</p>
+      </details>
+      <details>
+        <summary>Quanto tempo leva um caminho de mesa?</summary>
+        <p>Depende do modelo. A maioria fica entre 10 e 16 horas de crochê. Fazendo um pouco por noite, dá umas duas semanas. O tempo de cada um está na ficha.</p>
+      </details>
+      <details>
+        <summary>Como sei se o tamanho serve na minha mesa?</summary>
+        <p>Cada ficha mostra o tamanho final em centímetros. Os modelos vão de 90 a 150 cm de comprimento. Mede a sua mesa e escolhe antes de começar.</p>
+      </details>
+      <details>
+        <summary>Como funcionam as videoaulas?</summary>
+        <p>São 50 vídeos mostrando as mãos fazendo os pontos em close, pra você ver de perto sempre que travar. Você assiste pelo celular, no mesmo acesso dos gráficos.</p>
+      </details>
+      <details>
+        <summary>Como eu recebo?</summary>
+        <p>É tudo digital. Assim que o pagamento é aprovado, você recebe o acesso no seu e-mail. Nada é enviado pelo correio.</p>
+      </details>
+      <details>
+        <summary>Posso vender os caminhos que eu fizer?</summary>
+        <p>Pode. As peças que você faz são suas. O que não pode é revender ou compartilhar os arquivos do material.</p>
+      </details>
+      <details>
+        <summary>E se eu não gostar?</summary>
+        <p>Você tem 7 dias de garantia. Se não ficar satisfeita, pede o reembolso e devolvemos o valor integral.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FINAL ============ -->
+<section class="final">
+  <div class="wrap estreito">
+    <h2>A próxima visita que sentar na sua mesa <span class="it">vai perguntar onde você comprou</span></h2>
+    <p class="sub" style="margin:0 auto">100 gráficos de caminho de mesa em crochê, cada um com a ficha completa, e 50 videoaulas, por R$ <span data-preco>17,90</span>.</p>
+    <a href="#checkout" class="btn ir-checkout">QUERO OS 100 GRÁFICOS</a>
+    <div class="selos">
+      <span><svg class="ico"><use href="#i-cadeado"/></svg>Compra segura</span>
+      <span><svg class="ico"><use href="#i-escudo"/></svg>7 dias de garantia</span>
+      <span><svg class="ico"><use href="#i-raio"/></svg>Acesso imediato</span>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="links">100 GRÁFICOS DE CAMINHO DE MESA EM CROCHÊ</div>
+  <div>© 2026. Todos os direitos reservados.</div>
+  <div>Produto digital, entregue por e-mail.</div>
+</footer>
+
+<script>
+  // carrossel de páginas: desliza sozinho e continua arrastável (mesma função da LP do Fio Felpudo)
+  (function () {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    var trilho = document.getElementById('paginas');
+    if (!trilho) return;
+    var VEL = 0.45, arrastando = false, acc = 0, visivel = !('IntersectionObserver' in window), rodando = false;
+    function meio() { return trilho.scrollWidth / 2; }
+    function quadro() {
+      if (!visivel) { rodando = false; return; }
+      if (!arrastando) {
+        acc += VEL;
+        if (acc >= 1) { var p = Math.floor(acc); acc -= p; trilho.scrollLeft += p; }
+        if (trilho.scrollLeft >= meio()) trilho.scrollLeft -= meio();
+      }
+      requestAnimationFrame(quadro);
+    }
+    ['pointerdown', 'touchstart'].forEach(function (ev) { trilho.addEventListener(ev, function () { arrastando = true; }, { passive: true }); });
+    ['pointerup', 'pointercancel', 'touchend', 'touchcancel', 'mouseleave'].forEach(function (ev) { trilho.addEventListener(ev, function () { arrastando = false; }, { passive: true }); });
+    window.addEventListener('pointerup', function () { arrastando = false; }, { passive: true });
+    function ligar() { if (visivel && !rodando) { rodando = true; requestAnimationFrame(quadro); } }
+    if ('IntersectionObserver' in window) new IntersectionObserver(function (e) { visivel = e[0].isIntersecting; ligar(); }).observe(trilho);
+    ligar();
+  })();
+
+  // filtro da galeria: "Todos" mostra os destaques (data-top); os outros mostram o grupo inteiro
+  (function () {
+    var bts = [].slice.call(document.querySelectorAll('#filtros button'));
+    var mods = [].slice.call(document.querySelectorAll('#mods .mod'));
+    function filtrar(f) {
+      bts.forEach(function (b) { b.setAttribute('aria-pressed', b.dataset.f === f ? 'true' : 'false'); });
+      mods.forEach(function (m) { m.hidden = f === 'top' ? !m.hasAttribute('data-top') : m.dataset.c !== f; });
+    }
+    bts.forEach(function (b) { b.addEventListener('click', function () { filtrar(b.dataset.f); }); });
+    filtrar('top');
+  })();
+
+  // vídeos: só carregam e tocam quando aparecem na tela (não pesam no primeiro carregamento)
+  (function () {
+    var vids = [].slice.call(document.querySelectorAll('video.auto'));
+    if (!('IntersectionObserver' in window)) { vids.forEach(function (v) { v.preload = 'auto'; v.play().catch(function () {}); }); return; }
+    var io = new IntersectionObserver(function (es) {
+      es.forEach(function (e) {
+        var v = e.target;
+        if (e.isIntersecting) { if (v.preload !== 'auto') { v.preload = 'auto'; v.load(); } v.play().catch(function () {}); }
+        else v.pause();
+      });
+    }, { rootMargin: '200px 0px' });
+    vids.forEach(function (v) { io.observe(v); });
+  })();
+
+  // depoimentos em leque (igual ao do Fio Felpudo). Sem print real, a seção fica escondida.
+  (function () {
+    var secao = document.getElementById('depoimentos'), palco = document.getElementById('deps');
+    var trilho = document.getElementById('deps-trilho'), dots = document.getElementById('deps-dots');
+    if (!secao || !palco) return;
+    if (/[?&]previa=1/.test(location.search) && !trilho.querySelector('.dep-slide')) {
+      for (var k = 1; k <= 3; k++) { var f = document.createElement('figure'); f.className = 'dep-slide'; f.innerHTML = '<div class="dep-exemplo">[depoimento real aqui]<br>print ' + k + '</div>'; trilho.appendChild(f); }
+    }
+    var slides = [].slice.call(trilho.querySelectorAll('.dep-slide')), total = slides.length;
+    if (!total) return;
+    secao.hidden = false;
+    var atual = 0, timer = null;
+    var bolinhas = slides.map(function (_, i) {
+      var b = document.createElement('button'); b.type = 'button'; b.setAttribute('aria-label', 'Ver depoimento ' + (i + 1));
+      b.addEventListener('click', function () { mostrar(i); reiniciar(); }); dots.appendChild(b); return b;
+    });
+    function mostrar(n) {
+      atual = (n + total) % total;
+      slides.forEach(function (s, i) { var d = (i - atual + total) % total; s.className = 'dep-slide' + (d === 0 ? ' centro' : d === 1 ? ' dir' : d === total - 1 ? ' esq' : ''); });
+      bolinhas.forEach(function (b, i) { b.setAttribute('aria-current', i === atual ? 'true' : 'false'); });
+    }
+    function reiniciar() { clearInterval(timer); if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) timer = setInterval(function () { mostrar(atual + 1); }, 4200); }
+    palco.querySelector('.dep-seta.ant').addEventListener('click', function () { mostrar(atual - 1); reiniciar(); });
+    palco.querySelector('.dep-seta.prox').addEventListener('click', function () { mostrar(atual + 1); reiniciar(); });
+    mostrar(0); reiniciar();
+  })();
+</script>
+</body>
+</html>

@@ -1,0 +1,212 @@
+<!doctype html>
+<!-- Oferta de saída (back redirect) dos 100 Gráficos de Caminho de Mesa em Crochê: quem tenta voltar na index cai aqui.
+     Adaptada em 09/11/2026 da promo do Fio Felpudo. SEM back redirect aqui (daria loop).
+     Sem cronômetro falso, sem "restam poucas vagas" e sem depoimento. -->
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- ============================================================
+     O QUE TROCAR ANTES DE SUBIR
+       PRECO_SAIDA / PRECO_CHEIO -> provisórios (o Heitor ainda não definiu o preço). Todo preço desta página lê daqui.
+       CHECKOUT_SAIDA            -> checkout Wiapy da oferta de saída (ainda não cadastrado).
+       PIXEL_META_ID / UTMIFY_ID -> iguais aos da index.
+     ============================================================ -->
+<script>
+  window.PRECO_CHEIO = '17,90';                  // o mesmo window.PRECO da index
+  window.PRECO_SAIDA = '9,90';                   // PROVISÓRIO (mesma escada do Fio Felpudo: 17,90 -> 9,90)
+  window.CHECKOUT_SAIDA = 'TROCAR-CHECKOUT-SAIDA';
+  window.PIXEL_META_ID = 'TROCAR-PIXEL-META';
+  window.UTMIFY_ID = 'TROCAR-UTMIFY-ID';
+</script>
+<script>
+  if (window.PIXEL_META_ID.indexOf('TROCAR') === -1) {
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+    n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+    document,'script','https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', window.PIXEL_META_ID);
+    fbq('track', 'PageView');
+  }
+  if (window.UTMIFY_ID.indexOf('TROCAR') === -1) {
+    window.pixelId = window.UTMIFY_ID;
+    var a = document.createElement('script'); a.async = true; a.defer = true;
+    a.src = 'https://cdn.utmify.com.br/scripts/pixel/pixel.js'; document.head.appendChild(a);
+    var u = document.createElement('script'); u.async = true; u.defer = true;
+    u.src = 'https://cdn.utmify.com.br/scripts/utms/latest.js';
+    u.setAttribute('data-utmify-prevent-xcod-sck', ''); u.setAttribute('data-utmify-prevent-subids', '');
+    document.head.appendChild(u);
+  }
+</script>
+<title>Espera! 100 Gráficos de Caminho de Mesa com desconto</title>
+<meta name="description" content="Condição só desta página: os 100 gráficos de caminho de mesa em crochê e as 50 videoaulas com desconto.">
+<meta name="theme-color" content="#1B2B4B">
+<link rel="preload" as="font" type="font/woff2" href="fonts/inter-latin.woff2" crossorigin>
+<style>
+@font-face{font-family:'Inter';font-style:normal;font-weight:400 800;font-display:swap;src:url(fonts/inter-latin-ext.woff2) format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C4,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:'Inter';font-style:normal;font-weight:400 800;font-display:swap;src:url(fonts/inter-latin.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'DM Serif Display';font-style:italic;font-weight:400;font-display:swap;src:url(fonts/dmserifdisplay-italic-latin-ext.woff2) format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C4,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:'DM Serif Display';font-style:italic;font-weight:400;font-display:swap;src:url(fonts/dmserifdisplay-italic-latin.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+  :root{--verde:#25864A;--verde-esc:#1B2B4B;--vermelho:#1B2B4B;--vermelho-esc:#111C33;--dourado-claro:#E6CD8C;
+    --kraft:#F7F1E6;--kraft-2:#EFE5D2;--borda:#E2D5BB;--tinta:#26262E;--cinza:#655E54;
+    --sans:"Inter",system-ui,-apple-system,"Segoe UI",sans-serif;--script:"DM Serif Display",Georgia,serif}
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{background:var(--kraft);color:var(--tinta);font-family:var(--sans);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  img{max-width:100%;display:block;height:auto}
+  .wrap{width:100%;max-width:600px;margin:0 auto;padding:0 16px}
+  .alerta{background:var(--vermelho-esc);color:#fff;text-align:center;padding:10px 16px;font-size:clamp(12.5px,3.3vw,14.5px);font-weight:700;position:sticky;top:0;z-index:10}
+  .alerta b{background:#fff;color:var(--vermelho);border-radius:4px;padding:0 5px}
+  .topo{background:var(--vermelho);color:#fff;text-align:center;padding:clamp(28px,6vw,44px) 16px 128px}
+  .topo h1{font-weight:800;font-size:clamp(30px,7.4vw,46px);line-height:1.1;letter-spacing:-.8px}
+  .topo h1 span{display:block;font-family:var(--script);font-style:italic;font-weight:400;font-size:1.1em;color:var(--dourado-claro);letter-spacing:0;margin-top:4px}
+  .topo p{color:#C9D2E3;font-size:clamp(15px,3.6vw,17px);max-width:480px;margin:12px auto 0}
+  .topo p b{color:#fff}
+  .card{background:#fff;border:1px solid var(--borda);border-radius:20px;box-shadow:0 22px 50px rgba(51,38,28,.16);margin-top:-104px;position:relative;padding:34px clamp(18px,5vw,30px) 26px;text-align:center}
+  .selo{position:absolute;top:-15px;left:50%;transform:translateX(-50%);background:var(--verde);color:#fff;font-size:11.5px;font-weight:800;letter-spacing:1.3px;text-transform:uppercase;padding:7px 18px;border-radius:99px;white-space:nowrap}
+  .prod{display:flex;align-items:center;justify-content:center;gap:16px;margin-top:6px}
+  .capa{flex:none;width:96px;border-radius:2px 5px 5px 2px;box-shadow:8px 10px 18px rgba(51,38,28,.28)}
+  .card h2{font-weight:800;font-size:clamp(20px,5vw,24px);line-height:1.18;letter-spacing:-.4px;color:var(--verde-esc);text-align:left}
+  .de{display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap;margin-top:16px}
+  .de s{color:#8C8073;font-size:17px}
+  .economize{background:var(--kraft-2);color:var(--vermelho-esc);border:1px solid var(--borda);font-size:12px;font-weight:800;letter-spacing:.5px;padding:4px 10px;border-radius:6px;text-transform:uppercase}
+  .preco{font-weight:800;font-size:clamp(58px,14vw,76px);line-height:1;color:var(--vermelho);margin:10px 0 4px;letter-spacing:-2px}
+  .preco small{font-size:.34em;vertical-align:top;margin-right:4px;position:relative;top:.4em;letter-spacing:0;color:var(--cinza)}
+  .avista{font-size:14px;color:var(--cinza);margin-bottom:20px}
+  .inclui{list-style:none;display:grid;gap:10px;text-align:left}
+  .inclui li{display:flex;gap:10px;align-items:flex-start;font-size:clamp(14.5px,3.5vw,15.5px);line-height:1.45}
+  .ck{width:22px;height:22px;border-radius:50%;background:var(--verde);color:#fff;flex:none;display:flex;align-items:center;justify-content:center;font-size:11.5px;font-weight:800;margin-top:1px}
+  .btn{display:block;width:100%;margin-top:22px;background:linear-gradient(180deg,#36A35E 0%,#25864A 55%,#1C6E3C 100%);color:#fff;font-weight:800;font-size:clamp(16px,4.2vw,19px);padding:20px 16px;border-radius:14px;text-decoration:none;text-align:center;line-height:1.25;box-shadow:0 8px 22px rgba(28,110,60,.35);animation:respira 2.4s ease-in-out infinite}
+  @keyframes respira{0%,100%{transform:scale(1)}50%{transform:scale(1.02)}}
+  .selos{display:flex;gap:8px 16px;justify-content:center;flex-wrap:wrap;margin-top:14px;font-size:12.5px;color:var(--cinza)}
+  .selos span{display:inline-flex;align-items:center;gap:6px}
+  .selos svg{width:15px;height:15px;color:var(--verde)}
+  .garantia{background:#fff;border:1px solid var(--borda);border-radius:18px;padding:clamp(18px,4vw,24px);display:flex;gap:18px;align-items:center;margin:24px 0}
+  .escudo{width:74px;height:74px;border-radius:50%;background:var(--verde);color:var(--dourado-claro);flex:none;display:flex;flex-direction:column;align-items:center;justify-content:center}
+  .escudo b{font-size:28px;line-height:1}
+  .escudo span{font-size:10.5px;letter-spacing:1.2px;text-transform:uppercase;font-weight:700;color:#fff}
+  .garantia h3{font-size:17px;color:var(--verde-esc);margin-bottom:4px}
+  .garantia p{font-size:14.5px;color:var(--cinza);line-height:1.55}
+  @media(max-width:520px){.garantia{flex-direction:column;text-align:center}}
+  .vitrine{display:flex;gap:12px;overflow-x:auto;padding:4px 0 8px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+  .vitrine::-webkit-scrollbar{display:none}
+  .vitrine figure{flex:0 0 clamp(150px,40vw,190px);margin:0}
+  .vitrine img{width:100%;border-radius:8px;border:1px solid var(--borda);background:#fff;box-shadow:0 8px 20px rgba(51,38,28,.12)}
+  .legenda{text-align:center;font-size:13px;color:var(--cinza);margin:10px auto 0}
+  footer{text-align:center;padding:30px 16px 40px;font-size:12.5px;color:var(--cinza);line-height:1.7}
+  footer b{color:var(--tinta)}
+  @media(prefers-reduced-motion:reduce){.btn{animation:none}}
+</style>
+</head>
+<body>
+
+<div class="alerta">Condição única: <b>só nesta página</b></div>
+
+<header class="topo">
+  <h1>Espera! <span>Não vai embora ainda</span></h1>
+  <p>Antes de sair, liberamos os 100 gráficos <b>por menos</b>. Esse valor não aparece em nenhum outro lugar do site.</p>
+</header>
+
+<main class="wrap">
+  <section class="card">
+    <span class="selo">Oferta exclusiva de saída</span>
+    <div class="prod">
+      <img class="capa" src="img/promo/capa-220.webp" width="220" height="330" alt="Capa dos 100 Gráficos de Caminho de Mesa em Crochê">
+      <h2>100 Gráficos de Caminho de Mesa em Crochê <span style="white-space:nowrap">+ 50 videoaulas</span></h2>
+    </div>
+    <div class="de">
+      <s>R$ <span data-cheio>17,90</span></s>
+      <span class="economize">Economize R$ <span data-economia>8,00</span></span>
+    </div>
+    <div class="preco"><small>R$</small><span data-saida>9,90</span></div>
+    <p class="avista">pagamento único · acesso imediato</p>
+    <ul class="inclui">
+      <li><span class="ck">✓</span><span><b>100 modelos</b> de caminho de mesa em crochê</span></li>
+      <li><span class="ck">✓</span><span>A ficha de cada modelo e o gráfico completo pra imprimir</span></li>
+      <li><span class="ck">✓</span><span>Tamanho final, gramas de linha, agulha, nível e tempo</span></li>
+      <li><span class="ck">✓</span><span><b>50 videoaulas</b> pra ver o ponto sendo feito</span></li><li><span class="ck">✓</span><span>Oval, filé, abacaxi, flores, rústico, luxo e <b>10 de Natal</b></span></li>
+      <li><span class="ck">✓</span><span>PDF pro celular ou pra imprimir, com acesso vitalício</span></li>
+    </ul>
+    <a class="btn ir-checkout" href="#checkout">QUERO TUDO POR R$ <span data-saida>9,90</span></a>
+    <div class="selos">
+      <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>Compra segura</span>
+      <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 5 6v6c0 4.5 3 7.7 7 9 4-1.3 7-4.5 7-9V6l-7-3Z"/></svg>7 dias de garantia</span>
+      <span><svg viewBox="0 0 24 24" fill="currentColor"><path d="M13 2.5 4.5 13.5H12l-1 8 8.5-11H12l1-8Z"/></svg>Acesso imediato</span>
+    </div>
+  </section>
+
+  <section class="garantia">
+    <div class="escudo"><b>7</b><span>dias</span></div>
+    <div>
+      <h3>Garantia de 7 dias</h3>
+      <p>Se em 7 dias você sentir que o material não é pra você, pode pedir o reembolso, conforme as regras da plataforma de pagamento.</p>
+    </div>
+  </section>
+
+  <div class="vitrine" id="vitrine">
+    <figure><img src="img/paginas-sm/p001-1.webp" width="360" height="509" alt="Projeto 01, Caminho de Mesa Oval Pérola" loading="lazy"></figure>
+    <figure><img src="img/paginas-sm/p001-2.webp" width="360" height="509" alt="O gráfico completo do projeto 01" loading="lazy"></figure>
+    <figure><img src="img/paginas-sm/p065-1.webp" width="360" height="524" alt="Projeto 65, Natal Pinheiros em Filé" loading="lazy"></figure>
+    <figure><img src="img/paginas-sm/p011-1.webp" width="360" height="509" alt="Projeto 11, Filé Rosas Vermelhas" loading="lazy"></figure>
+    <figure><img src="img/paginas-sm/p069-1.webp" width="360" height="509" alt="Projeto 69, Natal Flocos de Neve" loading="lazy"></figure>
+    <figure><img src="img/paginas-sm/p087-1.webp" width="360" height="509" alt="Projeto 87, Luxo Dourado" loading="lazy"></figure>
+    <figure aria-hidden="true"><img src="img/paginas-sm/p001-1.webp" width="360" height="509" alt="" loading="lazy"></figure>
+    <figure aria-hidden="true"><img src="img/paginas-sm/p001-2.webp" width="360" height="509" alt="" loading="lazy"></figure>
+    <figure aria-hidden="true"><img src="img/paginas-sm/p065-1.webp" width="360" height="524" alt="" loading="lazy"></figure>
+    <figure aria-hidden="true"><img src="img/paginas-sm/p011-1.webp" width="360" height="509" alt="" loading="lazy"></figure>
+    <figure aria-hidden="true"><img src="img/paginas-sm/p069-1.webp" width="360" height="509" alt="" loading="lazy"></figure>
+    <figure aria-hidden="true"><img src="img/paginas-sm/p087-1.webp" width="360" height="509" alt="" loading="lazy"></figure>
+  </div>
+  <p class="legenda">Páginas reais do material: a ficha e o gráfico de cada modelo</p>
+</main>
+
+<footer>
+  <b>100 Gráficos de Caminho de Mesa em Crochê</b><br>
+  Material digital de uso pessoal. A reprodução ou revenda dos arquivos não é autorizada.
+</footer>
+
+<script>
+  // preços: um lugar só (topo da página); a economia é calculada
+  (function () {
+    var n = function (s) { return parseFloat(s.replace('.', '').replace(',', '.')); };
+    var eco = (n(window.PRECO_CHEIO) - n(window.PRECO_SAIDA)).toFixed(2).replace('.', ',');
+    document.querySelectorAll('[data-cheio]').forEach(function (e) { e.textContent = window.PRECO_CHEIO; });
+    document.querySelectorAll('[data-saida]').forEach(function (e) { e.textContent = window.PRECO_SAIDA; });
+    document.querySelectorAll('[data-economia]').forEach(function (e) { e.textContent = eco; });
+  })();
+  // botão: CHECKOUT_SAIDA + UTMs da URL (a index manda pra cá com a query dela)
+  (function () {
+    var q = new URLSearchParams(location.search);
+    document.querySelectorAll('.ir-checkout').forEach(function (a) {
+      if (!/^https?:/.test(window.CHECKOUT_SAIDA)) {
+        a.addEventListener('click', function (e) { e.preventDefault(); alert('Link de checkout ainda não configurado (CHECKOUT_SAIDA no topo da promo.html).'); });
+        return;
+      }
+      var u = new URL(window.CHECKOUT_SAIDA);
+      q.forEach(function (v, k) { if (!u.searchParams.has(k)) u.searchParams.set(k, v); });
+      a.href = u.toString();
+      a.addEventListener('click', function () { if (window.fbq) fbq('track', 'InitiateCheckout'); });
+    });
+  })();
+  // vitrine deslizando sozinha
+  (function () {
+    var trilho = document.getElementById('vitrine');
+    if (!trilho || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    var arrastando = false, acc = 0, visivel = !('IntersectionObserver' in window), rodando = false;
+    function meio() { return trilho.scrollWidth / 2; }
+    function quadro() {
+      if (!visivel) { rodando = false; return; }
+      if (!arrastando) { acc += 0.4; if (acc >= 1) { var p = Math.floor(acc); acc -= p; trilho.scrollLeft += p; } if (trilho.scrollLeft >= meio()) trilho.scrollLeft -= meio(); }
+      requestAnimationFrame(quadro);
+    }
+    ['pointerdown', 'touchstart'].forEach(function (ev) { trilho.addEventListener(ev, function () { arrastando = true; }, { passive: true }); });
+    ['pointerup', 'pointercancel', 'touchend', 'touchcancel', 'mouseleave'].forEach(function (ev) { trilho.addEventListener(ev, function () { arrastando = false; }, { passive: true }); });
+    function ligar() { if (visivel && !rodando) { rodando = true; requestAnimationFrame(quadro); } }
+    if ('IntersectionObserver' in window) new IntersectionObserver(function (e) { visivel = e[0].isIntersecting; ligar(); }).observe(trilho);
+    ligar();
+  })();
+</script>
+</body>
+</html>
