@@ -23,7 +23,7 @@
      ============================================================ -->
 <script>
   window.PRECO = '17,90';                          // PROVISÓRIO: o Heitor ainda não definiu o preço
-  window.CHECKOUT = 'TROCAR-CHECKOUT-PRINCIPAL';   // link do checkout Wiapy (https://pay.wiapy.com/...)
+  window.CHECKOUT = 'https://pay.wiapy.com/mpYx4wlaR2uu';   // link do checkout Wiapy (https://pay.wiapy.com/...)
   window.PIXEL_META_ID = 'TROCAR-PIXEL-META';
   window.UTMIFY_ID = 'TROCAR-UTMIFY-ID';
   window.LINK_SAIDA = 'promo.html';                // back redirect. Vazio = desligado.
@@ -238,7 +238,7 @@
   .dor-item span{font-size:15px;color:var(--cinza);line-height:1.55;display:block}
   .virada{margin-top:22px;font-family:var(--serif);font-size:clamp(22px,2.8vw,28px);line-height:1.2;color:var(--marinho)}
   .virada .it{display:block}
-  @media(max-width:760px){.dor-grid{grid-template-columns:1fr;justify-items:center}.dor-grid .vert{order:2;width:min(240px,64vw)}.dor-grid > div:last-child{width:100%}.dor h2{text-align:center}}
+  @media(max-width:760px){.dor-grid{grid-template-columns:1fr;justify-items:center}.dor-grid .vert{order:2;width:min(240px,64vw)}.dor-grid > div:last-child{width:100%}.dor h2{text-align:center}.dor .tag{display:table;margin-left:auto;margin-right:auto}}
 
   /* ---------- MECANISMO ---------- */
   .antes{background:var(--marinho);color:#fff;position:relative}
@@ -253,6 +253,21 @@
   .antes .fecho{max-width:640px;margin:30px auto 0;font-size:clamp(16px,2vw,18px);color:#fff}
   .antes .fecho b{color:var(--dourado-claro)}
   @media(max-width:760px){.tres{grid-template-columns:1fr;max-width:460px}}
+  .bonus{background:#fff}
+  .bonus-lista{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:36px;text-align:left}
+  .card-bonus{background:var(--creme);border:1px solid var(--borda);border-radius:16px;overflow:hidden;display:flex;flex-direction:column}
+  .capa-bonus img{display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:cover}
+  .txt-bonus{padding:16px 18px 18px}
+  .num-b{display:inline-block;font-size:12px;font-weight:800;letter-spacing:1.4px;color:var(--dourado);margin-bottom:6px}
+  .txt-bonus b{display:block;font-family:var(--serif);font-weight:400;font-size:22px;line-height:1.2;color:var(--marinho);margin-bottom:6px}
+  .txt-bonus span:not(.num-b){display:block;font-size:15px;color:var(--cinza);line-height:1.55}
+  @media(max-width:720px){.bonus-lista{grid-template-columns:1fr;max-width:460px;margin-left:auto;margin-right:auto}}
+  .bens{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;max-width:900px;margin:36px auto 0;text-align:left}
+  .bens > div{display:grid;grid-template-columns:36px 1fr;gap:14px;align-items:start;background:rgba(255,255,255,.05);border:1px solid rgba(230,205,140,.35);border-radius:16px;padding:18px}
+  .bens .ok{width:36px;height:36px;border-radius:50%;background:var(--dourado-claro);color:var(--marinho);display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:900}
+  .bens b{display:block;font-size:17px;color:#fff;margin-bottom:3px}
+  .bens span:not(.ok){display:block;font-size:15px;color:#C9D2E3;line-height:1.55}
+  @media(max-width:760px){.bens{grid-template-columns:1fr;max-width:460px;gap:10px}.bens > div{padding:14px}}
 
   /* ---------- POR DENTRO ---------- */
   .dentro{background:var(--creme);overflow:hidden}
@@ -370,14 +385,14 @@
 
   /* ---------- O QUE RECEBE ---------- */
   .recebe{background:var(--creme)}
-  .recebe-mock{position:relative;max-width:760px;margin:30px auto 0;height:clamp(250px,42vw,380px)}
+  .recebe-mock{position:relative;max-width:760px;margin:30px auto 0;height:clamp(240px,40vw,350px)}
   .recebe-mock img{position:absolute;height:auto;border-radius:3px;box-shadow:0 16px 34px rgba(17,28,51,.22);background:#fff}
   .recebe-mock .a{width:26%;left:6%;top:12%;transform:rotate(-8deg)}
   .recebe-mock .b{width:26%;left:24%;top:4%;transform:rotate(-3deg)}
   .recebe-mock .c{width:26%;right:24%;top:4%;transform:rotate(3deg)}
   .recebe-mock .d{width:26%;right:6%;top:12%;transform:rotate(8deg)}
   .recebe-mock .capa{width:31%;left:34.5%;top:0;z-index:2;border-radius:2px 6px 6px 2px;box-shadow:14px 20px 40px rgba(17,28,51,.36)}
-  @media(max-width:620px){.recebe-mock{height:74vw}.recebe-mock .a,.recebe-mock .d{width:31%}.recebe-mock .a{left:0}.recebe-mock .d{right:0}.recebe-mock .b,.recebe-mock .c{width:31%}.recebe-mock .b{left:15%}.recebe-mock .c{right:15%}.recebe-mock .capa{width:44%;left:28%}}
+  @media(max-width:620px){.recebe-mock{height:calc(62vw - 14px)}.cats{margin-top:16px}.recebe-mock .a,.recebe-mock .d{width:31%}.recebe-mock .a{left:0}.recebe-mock .d{right:0}.recebe-mock .b,.recebe-mock .c{width:31%}.recebe-mock .b{left:15%}.recebe-mock .c{right:15%}.recebe-mock .capa{width:44%;left:28%}}
   .cats{display:grid;grid-template-columns:repeat(2,1fr);gap:10px 14px;max-width:820px;margin:30px auto 0;text-align:left;list-style:none}
   .cats li{display:flex;align-items:center;gap:12px;background:#fff;border:1px solid var(--borda);border-radius:12px;padding:12px 14px;font-size:15px;line-height:1.35}
   .cats li b{flex:none;min-width:40px;height:40px;border-radius:10px;background:var(--marinho);color:var(--dourado-claro);font-family:var(--serif);font-weight:400;font-size:20px;display:flex;align-items:center;justify-content:center}
@@ -417,6 +432,12 @@
   .plano{max-width:520px;margin:40px auto 0;background:#fff;border:2px solid var(--marinho);border-radius:22px;padding:36px 24px 26px;text-align:left;position:relative;box-shadow:0 24px 60px rgba(17,28,51,.14)}
   .fita{position:absolute;top:-15px;left:50%;transform:translateX(-50%);background:var(--marinho);color:var(--dourado-claro);font-size:11.5px;font-weight:800;letter-spacing:1.3px;text-transform:uppercase;padding:8px 18px;border-radius:100px;white-space:nowrap}
   .plano-capa{width:160px;height:auto;margin:0 auto 14px;border-radius:2px 6px 6px 2px;box-shadow:8px 12px 22px rgba(17,28,51,.28)}
+  .combo{position:relative;width:100%;aspect-ratio:1.15;margin:4px auto 16px}
+  .combo img{position:absolute;height:auto;border-radius:2px 5px 5px 2px}
+  .combo .cb{width:24%;box-shadow:4px 8px 16px rgba(17,28,51,.30)}
+  .combo .cp{width:38%;left:31%;top:26%;z-index:3;box-shadow:10px 16px 30px rgba(17,28,51,.38)}
+  .cselo{position:absolute;top:-2%;right:-1%;z-index:4;width:clamp(64px,17%,84px);aspect-ratio:1;border-radius:50%;background:var(--vermelho);color:#fff;border:3px solid #fff;box-shadow:0 8px 18px rgba(0,0,0,.25);display:flex;flex-direction:column;align-items:center;justify-content:center;font-size:clamp(10px,2.4vw,12px);font-weight:800;letter-spacing:1px;transform:rotate(10deg);line-height:1}
+  .cselo b{font-size:clamp(22px,5.4vw,28px);letter-spacing:0;margin-bottom:2px}
   .plano-nome{font-family:var(--serif);font-size:24px;color:var(--marinho);text-align:center;line-height:1.15}
   .plano-preco{font-size:clamp(54px,9vw,66px);font-weight:800;color:var(--marinho);line-height:1;margin:12px 0 4px;text-align:center;letter-spacing:-2px}
   .plano-preco small{font-size:22px;font-weight:800;vertical-align:top;margin-right:4px;color:var(--cinza);letter-spacing:0;position:relative;top:8px}
@@ -525,30 +546,32 @@
       </video>
     </div>
     <div>
-      <span class="tag">Quem faz crochê conhece</span>
-      <h2>Uma semana de crochê, quase meio quilo de linha, <span class="it">e uma ponta fica diferente da outra</span></h2>
+      <span class="tag">Talvez seja o seu caso</span>
+      <h2>Você sempre quis um caminho de mesa feito por você, <span class="it">mas nunca soube por onde começar</span></h2>
       <div class="dores">
-        <div class="dor-item"><span class="x">✕</span><div><b>A ponta que não bate</b><span>Você estende na mesa e uma ponta ficou maior, ou ondulada. Aí é desmanchar tudo e começar de novo.</span></div></div>
-        <div class="dor-item"><span class="x">✕</span><div><b>O tamanho errado</b><span>Doze horas de crochê e, na mesa de seis lugares, sobra madeira dos dois lados. Parece um guardanapo comprido.</span></div></div>
-        <div class="dor-item"><span class="x">✕</span><div><b>O vídeo que sumiu</b><span>A peça na metade, você vai procurar a parte três e o vídeo não está mais lá. E o caminho vai pra sacola.</span></div></div>
+        <div class="dor-item"><span class="x">✕</span><div><b>Parece coisa de quem já é craque</b><span>Você vê aquele caminho rendado na mesa e acha que é trabalho pra quem faz crochê há anos. Nem chega a tentar.</span></div></div>
+        <div class="dor-item"><span class="x">✕</span><div><b>Não sabe que linha comprar</b><span>Chega na loja sem saber qual linha nem quantos novelos. Compra a mais, ou falta bem no finalzinho.</span></div></div>
+        <div class="dor-item"><span class="x">✕</span><div><b>Começou uma vez e parou no meio</b><span>Um vídeo mostra só o ponto, outro pula etapa, outro some. A peça ficou pela metade, guardada na sacola.</span></div></div>
       </div>
-      <p class="virada">O problema não é a sua mão. <span class="it">É começar sem saber onde vai chegar.</span></p>
+      <p class="virada">O problema nunca foi a sua mão. <span class="it">É começar sem saber onde vai chegar.</span></p>
     </div>
   </div>
 </section>
 
-<!-- ============ MECANISMO (IA1 + Corpo IA) ============ -->
+<!-- ============ BENEFÍCIOS (no lugar do mecanismo, 11/11) — números do catalogo.json: 17 iniciante, 60 intermediário, 23 avançado, 10 de Natal ============ -->
 <section class="antes">
   <div class="wrap centro">
-    <span class="tag clara">Antes da primeira corrente</span>
-    <h2>Caminho de mesa bonito <span class="it">começa antes do primeiro ponto</span></h2>
-    <p class="sub" style="margin-top:14px">Antes de puxar a primeira correntinha, você precisa saber três coisas. Sem elas, você desmancha.</p>
-    <div class="tres">
-      <div><div class="n">1</div><b>O tamanho final</b><span>Pra escolher pela sua mesa, e não descobrir na hora de estender.</span></div>
-      <div><div class="n">2</div><b>Quanta linha vai</b><span>Pra comprar de uma vez, do mesmo lote, sem faltar no fim do bico.</span></div>
-      <div><div class="n">3</div><b>A ordem de montagem</b><span>O corpo, as pontas, o bico. Cada coisa na hora certa, pra uma ponta sair igual à outra.</span></div>
+    <span class="tag clara">O que muda pra você</span>
+    <h2>Com os 100 gráficos, <span class="it">você começa sabendo onde vai chegar</span></h2>
+    <div class="bens">
+      <div><span class="ok">✓</span><div><b>Escolhe pelo tamanho da sua mesa</b><span>O tamanho final está na ficha. Você mede a mesa e escolhe antes de pegar a agulha.</span></div></div>
+      <div><span class="ok">✓</span><div><b>Compra a linha certa de uma vez</b><span>A ficha diz qual fio, quanto vai e qual agulha. Sem faltar no fim do bico.</span></div></div>
+      <div><span class="ok">✓</span><div><b>Gráfico grande, fácil de seguir</b><span>Uma página inteira só pro gráfico. Imprime, deixa do lado e vai riscando as carreiras.</span></div></div>
+      <div><span class="ok">✓</span><div><b>Tem modelo pro seu nível</b><span>17 pra quem está começando, 60 intermediários e 23 pra quando quiser caprichar.</span></div></div>
+      <div><span class="ok">✓</span><div><b>10 modelos só de Natal</b><span>Pra mesa da ceia ou pra pegar encomenda de fim de ano.</span></div></div>
+      <div><span class="ok">✓</span><div><b>Sabe quanto cobrar</b><span>Com a linha e as horas de cada modelo na ficha, você calcula o material e o prazo da encomenda.</span></div></div>
     </div>
-    <p class="fecho">Em cada um dos 100 modelos, essas três coisas <b>já vêm escritas na ficha</b>. Você começa sabendo onde vai chegar.</p>
+    <div style="margin-top:34px"><a href="#oferta" class="btn ir-oferta">QUERO OS 100 GRÁFICOS</a></div>
   </div>
 </section>
 
@@ -610,240 +633,6 @@
         <p>É um PDF de 200 páginas. Olha a ficha no celular, imprime só a página do gráfico do modelo que você escolheu e deixa do lado da linha. Vai riscando as carreiras com lápis.</p>
         <div style="margin-top:22px"><a href="#oferta" class="btn ir-oferta">QUERO OS 100 GRÁFICOS</a></div>
       </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ MESA DE 6 LUGARES (IA2 + S2) ============
-     Tamanhos = campo "tamanho" do catalogo.json (90 a 150 cm de comprimento). Sem regra de "tamanho ideal" inventada:
-     a página só diz que o tamanho final está na ficha pra escolher pela mesa. -->
-<section class="mesa6">
-  <div class="wrap mesa6-grid">
-    <div>
-      <span class="tag">A pergunta que mais aparece</span>
-      <h2>Que tamanho fica bonito <span class="it">numa mesa de 6 lugares?</span></h2>
-      <p class="sub" style="margin-top:14px">Quase ninguém descobre antes. Só quando a peça está pronta e estendida. Aqui é o contrário: todo modelo diz o tamanho final na ficha. Você mede a mesa, olha a ficha e escolhe antes de pegar a agulha.</p>
-      <ul>
-        <li><img src="img/fotos/003.webp" width="640" height="320" loading="lazy" alt=""><div><b>Pra mesa pequena</b><span>a partir de 90 cm de comprimento</span></div></li>
-        <li><img src="img/fotos/011.webp" width="640" height="320" loading="lazy" alt=""><div><b>Pra mesa de 6 lugares</b><span>de 110 a 140 cm, a maioria dos modelos</span></div></li>
-        <li><img src="img/fotos/084.webp" width="640" height="320" loading="lazy" alt=""><div><b>Pra mesa comprida</b><span>até 150 cm, com franja nas pontas</span></div></li>
-      </ul>
-    </div>
-    <div class="planta" aria-hidden="true">
-      <!-- planta de mesa de 6 lugares vista de cima, com o caminho no centro -->
-      <svg viewBox="0 0 400 300">
-        <g fill="#E8DCC4" stroke="#C9B793" stroke-width="2">
-          <rect x="88" y="30" width="56" height="36" rx="10"/><rect x="172" y="30" width="56" height="36" rx="10"/><rect x="256" y="30" width="56" height="36" rx="10"/>
-          <rect x="88" y="234" width="56" height="36" rx="10"/><rect x="172" y="234" width="56" height="36" rx="10"/><rect x="256" y="234" width="56" height="36" rx="10"/>
-        </g>
-        <rect x="50" y="70" width="300" height="160" rx="10" fill="#B8834F"/>
-        <rect x="50" y="70" width="300" height="160" rx="10" fill="none" stroke="#9A6B3E" stroke-width="3"/>
-        <g fill="#fff" stroke="#E2D5BB" stroke-width="2"><circle cx="116" cy="93" r="16"/><circle cx="200" cy="93" r="16"/><circle cx="284" cy="93" r="16"/><circle cx="116" cy="207" r="16"/><circle cx="200" cy="207" r="16"/><circle cx="284" cy="207" r="16"/></g>
-        <rect x="84" y="136" width="232" height="38" rx="19" fill="#F3EAD6" stroke="#C29A45" stroke-width="3" stroke-dasharray="1 5" stroke-linecap="round"/>
-        <rect x="92" y="143" width="216" height="24" rx="12" fill="none" stroke="#D9C79F" stroke-width="1.5"/>
-        <g stroke="#1B2B4B" stroke-width="2" fill="none"><path d="M84 124h232"/><path d="M84 118v12M316 118v12"/></g>
-        <rect x="156" y="115" width="88" height="18" rx="4" fill="#1B2B4B"/>
-        <text x="200" y="128" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="11" font-weight="800" fill="#E6CD8C">TAMANHO FINAL</text>
-      </svg>
-      <p>O tamanho de cada modelo está na ficha, em centímetros.</p>
-    </div>
-  </div>
-</section>
-
-<!-- ============ GALERIA (gerada do catalogo.json por _geracao/galeria.cjs) ============ -->
-<section class="galeria">
-  <div class="wrap centro">
-    <span class="tag">Alguns dos 100 modelos</span>
-    <h2>Oval, filé, abacaxi, flores, rústico, luxo <span class="it">e 10 de Natal</span></h2>
-    <div class="filtros" id="filtros" role="group" aria-label="Filtrar modelos">
-      <button type="button" data-f="top" aria-pressed="true">Todos</button>
-      <button type="button" data-f="natal" aria-pressed="false">Natal</button>
-      <button type="button" data-f="oval" aria-pressed="false">Oval</button>
-      <button type="button" data-f="file" aria-pressed="false">Filé</button>
-      <button type="button" data-f="abacaxi" aria-pressed="false">Abacaxi</button>
-      <button type="button" data-f="flores" aria-pressed="false">Flores</button>
-      <button type="button" data-f="rustico" aria-pressed="false">Rústico</button>
-      <button type="button" data-f="luxo" aria-pressed="false">Luxo</button>
-    </div>
-    <div class="mods" id="mods">
-<!-- GALERIA:INICIO (gerado, não editar à mão) -->
-      <figure class="mod" data-c="oval" data-top>
-        <img src="img/fotos/001.webp" width="640" height="320" loading="lazy" alt="Caminho de Mesa Oval Pérola, caminho de mesa em crochê na mesa posta">
-        <figcaption><b>Caminho de Mesa Oval Pérola</b><span>100 x 40 cm · 430 g · Intermediário · 12 h</span></figcaption>
-      </figure>
-      <figure class="mod" data-c="natal" data-top>
-        <img src="img/fotos/065.webp" width="640" height="320" loading="lazy" alt="Natal Pinheiros em Filé, caminho de mesa em crochê na mesa posta">
-        <figcaption><b>Natal Pinheiros em Filé</b><span>120 x 35 cm · 350 g · Intermediário · 12 h</span></figcaption>
-      </figure>
-      <figure class="mod" data-c="file" data-top>
-        <img src="img/fotos/011.webp" width="640" height="320" loading="lazy" alt="Filé Rosas Vermelhas, caminho de mesa em crochê na mesa posta">
-        <figcaption><b>Filé Rosas Vermelhas</b><span>140 x 35 cm · 450 g · Intermediário · 14 h</span></figcaption>
-      </figure>
-      <figure class="mod" data-c="abacaxi" data-top>
-        <img src="img/fotos/041.webp" width="640" height="320" loading="lazy" alt="Abacaxi Clássico, caminho de mesa em crochê na mesa posta">
-        <figcaption><b>Abacaxi Clássico</b><span>110 x 40 cm · 150 g · Avançado · 33 h</span></figcaption>
-      </figure>
-      <figure class="mod" data-c="flores" data-top>
-        <img src="img/fotos/053.webp" width="640" height="320" loading="lazy" alt="Margaridas Emendadas, caminho de mesa em crochê na mesa posta">
-        <figcaption><b>Margaridas Emendadas</b><span>120 x 35 cm · 450 g · Intermediário · 14 h</span></figcaption>
-      </figure>
-      <figure class="mod" data-c="luxo" data-top>
-        <img src="img/fotos/087.webp" width="640" height="320" loading="lazy" alt="Luxo Dourado, caminho de mesa em crochê na mesa posta">
-        <figcaption><b>Luxo Dourado</b><span>120 x 45 cm · 500 g · Avançado · 15 h</span></figcaption>
-      </figure>
-      <figure class="mod" data-c="natal" data-top>
-        <img src="img/fotos/067.webp" width="640" height="320" loading="lazy" alt="Natal Bico-de-Papagaio, caminho de mesa em crochê na mesa posta">
-        <figcaption><b>Natal Bico-de-Papagaio</b><span>120 x 40 cm · 500 g · Intermediário · 16 h</span></figcaption>
-      </figure>
-      <figure class="mod" data-c="rustico" data-top>
-        <img src="img/fotos/084.webp" width="640" height="320" loading="lazy" alt="Rústico Cru com Franjas, caminho de mesa em crochê na mesa posta">
-        <figcaption><b>Rústico Cru com Franjas</b><span>150 x 35 cm · 600 g · Iniciante · 10 h</span></figcaption>
-      </figure>
-      <figure class="mod" data-c="abacaxi" data-top>
-        <img src="img/fotos/005.webp" width="640" height="320" loading="lazy" alt="Oval Abacaxi Clássico, caminho de mesa em crochê na mesa posta">
-        <figcaption><b>Oval Abacaxi Clássico</b><span>100 x 45 cm · 400 g · Avançado · 17 h</span></figcaption>
-      </figure>
-      <figure class="mod" data-c="file" data-top>
-        <img src="img/fotos/022.webp" width="640" height="320" loading="lazy" alt="Filé Girassol Moderno, caminho de mesa em crochê na mesa posta">
-        <figcaption><b>Filé Girassol Moderno</b><span>120 x 40 cm · 450 g · Intermediário · 14 h</span></figcaption>
-      </figure>
-      <figure class="mod" data-c="natal" data-top>
-        <img src="img/fotos/069.webp" width="640" height="320" loading="lazy" alt="Natal Flocos de Neve, caminho de mesa em crochê na mesa posta">
-        <figcaption><b>Natal Flocos de Neve</b><span>140 x 35 cm · 450 g · Intermediário · 14 h</span></figcaption>
-      </figure>
-      <figure class="mod" data-c="flores" data-top>
-        <img src="img/fotos/091.webp" width="640" height="320" loading="lazy" alt="Rosas em Relevo, caminho de mesa em crochê na mesa posta">
-        <figcaption><b>Rosas em Relevo</b><span>120 x 35 cm · 450 g · Avançado · 14 h</span></figcaption>
-      </figure>
-      <figure class="mod" data-c="oval">
-        <img src="img/fotos/002.webp" width="640" height="320" loading="lazy" alt="Oval Leque Dourado, caminho de mesa em crochê na mesa posta">
-        <figcaption><b>Oval Leque Dourado</b><span>110 x 40 cm · 450 g · Intermediário · 13 h</span></figcaption>
-      </figure>
-      <figure class="mod" data-c="oval">
-        <img src="img/fotos/009.webp" width="640" height="320" loading="lazy" alt="Oval Terracota Rústico, caminho de mesa em crochê na mesa posta">
-        <figcaption><b>Oval Terracota Rústico</b><span>100 x 38 cm · 450 g · Iniciante · 9 h</span></figcaption>
-      </figure>
-      <figure class="mod" data-c="abacaxi">
-        <img src="img/fotos/043.webp" width="640" height="320" loading="lazy" alt="Abacaxi Pavão, caminho de mesa em crochê na mesa posta">
-        <figcaption><b>Abacaxi Pavão</b><span>100 x 45 cm · 300 g · Avançado · 17 h</span></figcaption>
-      </figure>
-      <figure class="mod" data-c="abacaxi">
-        <img src="img/fotos/097.webp" width="640" height="320" loading="lazy" alt="Ondas Turquesa, caminho de mesa em crochê na mesa posta">
-        <figcaption><b>Ondas Turquesa</b><span>110 x 35 cm · 300 g · Intermediário · 14 h</span></figcaption>
-      </figure>
-      <figure class="mod" data-c="file">
-        <img src="img/fotos/013.webp" width="640" height="320" loading="lazy" alt="Filé Corações, caminho de mesa em crochê na mesa posta">
-        <figcaption><b>Filé Corações</b><span>120 x 35 cm · 350 g · Iniciante · 12 h</span></figcaption>
-      </figure>
-      <figure class="mod" data-c="file">
-        <img src="img/fotos/096.webp" width="640" height="320" loading="lazy" alt="Corações Rosa em Filé, caminho de mesa em crochê na mesa posta">
-        <figcaption><b>Corações Rosa em Filé</b><span>120 x 35 cm · 350 g · Iniciante · 12 h</span></figcaption>
-      </figure>
-      <figure class="mod" data-c="flores">
-        <img src="img/fotos/049.webp" width="640" height="320" loading="lazy" alt="Squares Flor Lilás, caminho de mesa em crochê na mesa posta">
-        <figcaption><b>Squares Flor Lilás</b><span>120 x 40 cm · 500 g · Intermediário · 16 h</span></figcaption>
-      </figure>
-      <figure class="mod" data-c="flores">
-        <img src="img/fotos/056.webp" width="640" height="320" loading="lazy" alt="Trilho de Flores Rosadas, caminho de mesa em crochê na mesa posta">
-        <figcaption><b>Trilho de Flores Rosadas</b><span>120 x 35 cm · 450 g · Intermediário · 14 h</span></figcaption>
-      </figure>
-      <figure class="mod" data-c="flores">
-        <img src="img/fotos/062.webp" width="640" height="320" loading="lazy" alt="Flores em Relevo Lilás, caminho de mesa em crochê na mesa posta">
-        <figcaption><b>Flores em Relevo Lilás</b><span>120 x 40 cm · 500 g · Avançado · 16 h</span></figcaption>
-      </figure>
-      <figure class="mod" data-c="flores">
-        <img src="img/fotos/079.webp" width="640" height="320" loading="lazy" alt="Girassóis Hexagonais, caminho de mesa em crochê na mesa posta">
-        <figcaption><b>Girassóis Hexagonais</b><span>120 x 40 cm · 500 g · Intermediário · 16 h</span></figcaption>
-      </figure>
-      <figure class="mod" data-c="flores">
-        <img src="img/fotos/095.webp" width="640" height="320" loading="lazy" alt="Barrado de Tulipas, caminho de mesa em crochê na mesa posta">
-        <figcaption><b>Barrado de Tulipas</b><span>110 x 35 cm · 350 g · Intermediário · 9 h</span></figcaption>
-      </figure>
-      <figure class="mod" data-c="rustico">
-        <img src="img/fotos/029.webp" width="640" height="320" loading="lazy" alt="Leque Aberto com Borlas, caminho de mesa em crochê na mesa posta">
-        <figcaption><b>Leque Aberto com Borlas</b><span>140 x 35 cm · 550 g · Iniciante · 10 h</span></figcaption>
-      </figure>
-      <figure class="mod" data-c="rustico">
-        <img src="img/fotos/086.webp" width="640" height="320" loading="lazy" alt="Rústico Listrado Café, caminho de mesa em crochê na mesa posta">
-        <figcaption><b>Rústico Listrado Café</b><span>140 x 35 cm · 550 g · Iniciante · 10 h</span></figcaption>
-      </figure>
-      <figure class="mod" data-c="luxo">
-        <img src="img/fotos/088.webp" width="640" height="320" loading="lazy" alt="Luxo Preto e Dourado, caminho de mesa em crochê na mesa posta">
-        <figcaption><b>Luxo Preto e Dourado</b><span>110 x 40 cm · 300 g · Avançado · 16 h</span></figcaption>
-      </figure>
-      <figure class="mod" data-c="luxo">
-        <img src="img/fotos/089.webp" width="640" height="320" loading="lazy" alt="Luxo Branco Neve, caminho de mesa em crochê na mesa posta">
-        <figcaption><b>Luxo Branco Neve</b><span>140 x 40 cm · 250 g · Avançado · 26 h</span></figcaption>
-      </figure>
-      <figure class="mod" data-c="natal">
-        <img src="img/fotos/066.webp" width="640" height="320" loading="lazy" alt="Natal Papai Noel, caminho de mesa em crochê na mesa posta">
-        <figcaption><b>Natal Papai Noel</b><span>100 x 35 cm · 300 g · Intermediário · 10 h</span></figcaption>
-      </figure>
-      <figure class="mod" data-c="natal">
-        <img src="img/fotos/068.webp" width="640" height="320" loading="lazy" alt="Natal Estrelas Vermelhas, caminho de mesa em crochê na mesa posta">
-        <figcaption><b>Natal Estrelas Vermelhas</b><span>120 x 35 cm · 450 g · Intermediário · 14 h</span></figcaption>
-      </figure>
-      <figure class="mod" data-c="natal">
-        <img src="img/fotos/070.webp" width="640" height="320" loading="lazy" alt="Natal Sinos, caminho de mesa em crochê na mesa posta">
-        <figcaption><b>Natal Sinos</b><span>100 x 35 cm · 300 g · Intermediário · 10 h</span></figcaption>
-      </figure>
-      <figure class="mod" data-c="natal">
-        <img src="img/fotos/071.webp" width="640" height="320" loading="lazy" alt="Natal Velas e Ramos, caminho de mesa em crochê na mesa posta">
-        <figcaption><b>Natal Velas e Ramos</b><span>110 x 40 cm · 300 g · Avançado · 13 h</span></figcaption>
-      </figure>
-      <figure class="mod" data-c="natal">
-        <img src="img/fotos/072.webp" width="640" height="320" loading="lazy" alt="Natal Degraus com Borla, caminho de mesa em crochê na mesa posta">
-        <figcaption><b>Natal Degraus com Borla</b><span>100 x 35 cm · 350 g · Iniciante · 10 h</span></figcaption>
-      </figure>
-      <figure class="mod" data-c="natal">
-        <img src="img/fotos/073.webp" width="640" height="320" loading="lazy" alt="Natal Árvores com Borlas, caminho de mesa em crochê na mesa posta">
-        <figcaption><b>Natal Árvores com Borlas</b><span>120 x 35 cm · 350 g · Intermediário · 12 h</span></figcaption>
-      </figure>
-      <figure class="mod" data-c="natal">
-        <img src="img/fotos/074.webp" width="640" height="320" loading="lazy" alt="Natal Renas Nórdicas, caminho de mesa em crochê na mesa posta">
-        <figcaption><b>Natal Renas Nórdicas</b><span>120 x 35 cm · 350 g · Intermediário · 12 h</span></figcaption>
-      </figure>
-<!-- GALERIA:FIM -->
-    </div>
-    <p class="gal-nota">Fotos das fichas do material. Tamanho, linha, nível e tempo como estão em cada ficha.</p>
-    <div style="margin-top:32px"><a href="#oferta" class="btn ir-oferta">QUERO ESCOLHER O MEU</a></div>
-  </div>
-</section>
-
-<!-- ============ NATAL (G2, G4, G7, IA3, IA4, S3) ============ -->
-<section class="natal">
-  <div class="wrap natal-grid">
-    <div>
-      <span class="tag">10 modelos só de Natal</span>
-      <h2>A mesa da ceia vai estar cheia de gente olhando. <span class="it">Imagina um caminho feito por você.</span></h2>
-      <p>Pinheiros, sinos, flocos de neve, bico-de-papagaio, renas. É a peça que fica no centro da ceia, a primeira coisa que todo mundo vê. E quando alguém perguntar de qual loja você comprou, <b>você só sorri e fala: fui eu que fiz.</b></p>
-      <p>Pega encomenda de Natal? A ficha já diz quanta linha vai e quantas horas leva. Você sabe na hora quanto cobrar de material e quando dá pra entregar. Quem deixa pra começar em dezembro não entrega.</p>
-      <div class="contagem">
-        <div><b data-dias>46</b>dias até o Natal</div>
-        <div><b>10 a 16 h</b>de crochê nos modelos de Natal</div>
-      </div>
-    </div>
-    <div class="vert">
-      <!-- B-roll do Heitor (112656eb - Trim): caminho de Natal com pinheiro na mesa. Mudo, em loop. -->
-      <video class="auto" muted loop playsinline preload="none" poster="img/video/natal.jpg" width="360" height="640" aria-label="Caminho de mesa de Natal em crochê com pinheiro, sobre a mesa">
-        <source src="img/video/natal.mp4" type="video/mp4">
-      </video>
-    </div>
-  </div>
-  <div class="wrap">
-    <div class="nat-trilho">
-<!-- NATAL:INICIO (gerado, não editar à mão) -->
-      <figure class="nat"><img src="img/fotos/065.webp" width="640" height="320" loading="lazy" alt="Natal Pinheiros em Filé"><figcaption><b>Pinheiros em Filé</b><span>120 x 35 cm · 12 h</span></figcaption></figure>
-      <figure class="nat"><img src="img/fotos/066.webp" width="640" height="320" loading="lazy" alt="Natal Papai Noel"><figcaption><b>Papai Noel</b><span>100 x 35 cm · 10 h</span></figcaption></figure>
-      <figure class="nat"><img src="img/fotos/067.webp" width="640" height="320" loading="lazy" alt="Natal Bico-de-Papagaio"><figcaption><b>Bico-de-Papagaio</b><span>120 x 40 cm · 16 h</span></figcaption></figure>
-      <figure class="nat"><img src="img/fotos/068.webp" width="640" height="320" loading="lazy" alt="Natal Estrelas Vermelhas"><figcaption><b>Estrelas Vermelhas</b><span>120 x 35 cm · 14 h</span></figcaption></figure>
-      <figure class="nat"><img src="img/fotos/069.webp" width="640" height="320" loading="lazy" alt="Natal Flocos de Neve"><figcaption><b>Flocos de Neve</b><span>140 x 35 cm · 14 h</span></figcaption></figure>
-      <figure class="nat"><img src="img/fotos/070.webp" width="640" height="320" loading="lazy" alt="Natal Sinos"><figcaption><b>Sinos</b><span>100 x 35 cm · 10 h</span></figcaption></figure>
-      <figure class="nat"><img src="img/fotos/071.webp" width="640" height="320" loading="lazy" alt="Natal Velas e Ramos"><figcaption><b>Velas e Ramos</b><span>110 x 40 cm · 13 h</span></figcaption></figure>
-      <figure class="nat"><img src="img/fotos/072.webp" width="640" height="320" loading="lazy" alt="Natal Degraus com Borla"><figcaption><b>Degraus com Borla</b><span>100 x 35 cm · 10 h</span></figcaption></figure>
-      <figure class="nat"><img src="img/fotos/073.webp" width="640" height="320" loading="lazy" alt="Natal Árvores com Borlas"><figcaption><b>Árvores com Borlas</b><span>120 x 35 cm · 12 h</span></figcaption></figure>
-      <figure class="nat"><img src="img/fotos/074.webp" width="640" height="320" loading="lazy" alt="Natal Renas Nórdicas"><figcaption><b>Renas Nórdicas</b><span>120 x 35 cm · 12 h</span></figcaption></figure>
-<!-- NATAL:FIM -->
     </div>
   </div>
 </section>
@@ -941,6 +730,63 @@
   </div>
 </section>
 
+<!-- ============ BÔNUS (pedido do Heitor em 11/11: 6 bônus; capas geradas no ChatGPT, entregaveis/caminho-mesa-croche/bonus-capas) ============ -->
+<section class="bonus">
+  <div class="wrap centro">
+    <span class="tag">Bônus inclusos</span>
+    <h2>E você ainda leva <span class="it">6 bônus de presente</span></h2>
+    <div class="bonus-lista">
+      <div class="card-bonus">
+        <div class="capa-bonus"><img src="img/bonus/b1.webp" width="680" height="383" loading="lazy" alt="Capa do Bônus 01, Do Zero ao Ponto Alto"></div>
+        <div class="txt-bonus"><span class="num-b">🎁 BÔNUS 01</span><b>Do Zero ao Ponto Alto</b><span>Guia ilustrado dos pontos básicos: correntinha, ponto baixo, ponto alto, leque e picô. Pra quem nunca pegou numa agulha começar do jeito certo.</span></div>
+      </div>
+      <div class="card-bonus">
+        <div class="capa-bonus"><img src="img/bonus/b2.webp" width="680" height="383" loading="lazy" alt="Capa do Bônus 02, Gráfico Sem Mistério"></div>
+        <div class="txt-bonus"><span class="num-b">🎁 BÔNUS 02</span><b>Gráfico Sem Mistério</b><span>Cada símbolo explicado, por onde começar e como seguir as carreiras. Depois dele, você lê qualquer gráfico de crochê.</span></div>
+      </div>
+      <div class="card-bonus">
+        <div class="capa-bonus"><img src="img/bonus/b3.webp" width="680" height="383" loading="lazy" alt="Capa do Bônus 03, 20 Bicos e Barrados"></div>
+        <div class="txt-bonus"><span class="num-b">🎁 BÔNUS 03</span><b>20 Bicos e Barrados</b><span>Acabamentos pra trocar a ponta de qualquer caminho. Um modelo vira vários.</span></div>
+      </div>
+      <div class="card-bonus">
+        <div class="capa-bonus"><img src="img/bonus/b4.webp" width="680" height="383" loading="lazy" alt="Capa do Bônus 04, Durinho e Retinho"></div>
+        <div class="txt-bonus"><span class="num-b">🎁 BÔNUS 04</span><b>Durinho e Retinho</b><span>Goma e blocagem pro caminho ficar reto, firme e com uma ponta igual à outra. E como lavar sem deformar.</span></div>
+      </div>
+      <div class="card-bonus">
+        <div class="capa-bonus"><img src="img/bonus/b5.webp" width="680" height="383" loading="lazy" alt="Capa do Bônus 05, Guia de Precificação"></div>
+        <div class="txt-bonus"><span class="num-b">🎁 BÔNUS 05</span><b>Guia de Precificação</b><span>Quanto cobrar em cada caminho de mesa: linha, horas e margem, com modelo de orçamento pro WhatsApp.</span></div>
+      </div>
+      <div class="card-bonus">
+        <div class="capa-bonus"><img src="img/bonus/b6.webp" width="680" height="383" loading="lazy" alt="Capa do Bônus 06, 20 Caminhos de Mesa Temáticos de Natal"></div>
+        <div class="txt-bonus"><span class="num-b">🎁 BÔNUS 06</span><b>20 Caminhos de Mesa Temáticos de Natal</b><span>Pinheiros, renas, estrelas e sinos. Mais 20 modelos só pra ceia e pras encomendas de fim de ano.</span></div>
+      </div>
+    </div>
+    <div style="margin-top:34px"><a href="#oferta" class="btn ir-oferta">QUERO OS 100 GRÁFICOS + 6 BÔNUS</a></div>
+  </div>
+</section>
+
+<!-- ============ NATAL (G2, G4, G7, IA3, IA4, S3) ============ -->
+<section class="natal">
+  <div class="wrap natal-grid">
+    <div>
+      <span class="tag">10 modelos só de Natal</span>
+      <h2>A mesa da ceia vai estar cheia de gente olhando. <span class="it">Imagina um caminho feito por você.</span></h2>
+      <p>Pinheiros, sinos, flocos de neve, bico-de-papagaio, renas. É a peça que fica no centro da ceia, a primeira coisa que todo mundo vê. E quando alguém perguntar de qual loja você comprou, <b>você só sorri e fala: fui eu que fiz.</b></p>
+      <p>Pega encomenda de Natal? A ficha já diz quanta linha vai e quantas horas leva. Você sabe na hora quanto cobrar de material e quando dá pra entregar. Quem deixa pra começar em dezembro não entrega.</p>
+      <div class="contagem">
+        <div><b data-dias>46</b>dias até o Natal</div>
+        <div><b>10 a 16 h</b>de crochê nos modelos de Natal</div>
+      </div>
+    </div>
+    <div class="vert">
+      <!-- B-roll do Heitor (112656eb - Trim): caminho de Natal com pinheiro na mesa. Mudo, em loop. -->
+      <video class="auto" muted loop playsinline preload="none" poster="img/video/natal.jpg" width="360" height="640" aria-label="Caminho de mesa de Natal em crochê com pinheiro, sobre a mesa">
+        <source src="img/video/natal.mp4" type="video/mp4">
+      </video>
+    </div>
+  </div>
+</section>
+
 <!-- ============ DEPOIMENTOS ============
      TROCAR: depoimentos. NÃO inventar. A seção fica ESCONDIDA enquanto #deps-trilho não tiver <figure class="dep-slide"> com print real.
      Para preencher: img/depoimentos/dep-01.webp ... e um bloco por print:
@@ -969,7 +815,16 @@
 
     <div class="plano">
       <span class="fita">Acesso completo</span>
-      <img class="plano-capa" src="img/capa.webp" width="600" height="848" loading="lazy" alt="Capa do material 100 Gráficos de Caminho de Mesa em Crochê">
+      <div class="combo" role="img" aria-label="O material 100 Gráficos de Caminho de Mesa em Crochê e as capas dos 6 bônus">
+        <img class="cb" src="img/bonus/capas/c1.webp" style="left:0%;top:40%;transform:rotate(-9deg);z-index:2" width="455" height="640" loading="lazy" alt="">
+        <img class="cb" src="img/bonus/capas/c2.webp" style="left:8%;top:14%;transform:rotate(-6deg);z-index:1" width="455" height="640" loading="lazy" alt="">
+        <img class="cb" src="img/bonus/capas/c3.webp" style="left:26%;top:0%;transform:rotate(-3deg);z-index:0" width="455" height="640" loading="lazy" alt="">
+        <img class="cb" src="img/bonus/capas/c4.webp" style="left:50%;top:0%;transform:rotate(3deg);z-index:0" width="455" height="640" loading="lazy" alt="">
+        <img class="cb" src="img/bonus/capas/c5.webp" style="left:68%;top:14%;transform:rotate(6deg);z-index:1" width="455" height="640" loading="lazy" alt="">
+        <img class="cb" src="img/bonus/capas/c6.webp" style="left:76%;top:40%;transform:rotate(9deg);z-index:2" width="455" height="640" loading="lazy" alt="">
+        <img class="cp" src="img/capa.webp" width="600" height="848" loading="lazy" alt="">
+        <span class="cselo"><b>+6</b>BÔNUS</span>
+      </div>
       <div class="plano-nome">100 Gráficos de Caminho de Mesa em Crochê</div>
       <div class="plano-preco"><small>R$</small><span data-preco>17,90</span></div>
       <p class="plano-obs">pagamento único · acesso imediato</p>
@@ -979,6 +834,7 @@
         <li><span class="ckm">✓</span><span>O gráfico completo numa página, pra imprimir</span></li>
         <li><span class="ckm">✓</span><span><b>50 videoaulas</b> pra ver o ponto sendo feito</span></li>
         <li><span class="ckm">✓</span><span>Oval, filé, abacaxi, flores, rústico, luxo e <b>10 de Natal</b></span></li>
+        <li><span class="ckm">✓</span><span><b>6 bônus:</b> pontos básicos, leitura de gráfico, 20 bicos e barrados, goma e blocagem, guia de precificação e 20 caminhos de Natal</span></li>
         <li><span class="ckm">✓</span><span>PDF pro celular ou pra imprimir, com acesso vitalício</span></li>
       </ul>
       <div class="relogio">Faltam <b><span data-dias>46</span> dias</b> pro Natal. Dá tempo de fazer o seu caminho pra ceia, se começar agora.</div>
@@ -1095,18 +951,6 @@
     function ligar() { if (visivel && !rodando) { rodando = true; requestAnimationFrame(quadro); } }
     if ('IntersectionObserver' in window) new IntersectionObserver(function (e) { visivel = e[0].isIntersecting; ligar(); }).observe(trilho);
     ligar();
-  })();
-
-  // filtro da galeria: "Todos" mostra os destaques (data-top); os outros mostram o grupo inteiro
-  (function () {
-    var bts = [].slice.call(document.querySelectorAll('#filtros button'));
-    var mods = [].slice.call(document.querySelectorAll('#mods .mod'));
-    function filtrar(f) {
-      bts.forEach(function (b) { b.setAttribute('aria-pressed', b.dataset.f === f ? 'true' : 'false'); });
-      mods.forEach(function (m) { m.hidden = f === 'top' ? !m.hasAttribute('data-top') : m.dataset.c !== f; });
-    }
-    bts.forEach(function (b) { b.addEventListener('click', function () { filtrar(b.dataset.f); }); });
-    filtrar('top');
   })();
 
   // vídeos: só carregam e tocam quando aparecem na tela (não pesam no primeiro carregamento)
